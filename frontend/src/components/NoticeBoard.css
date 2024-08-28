@@ -1,0 +1,194 @@
+/* Center the Notice Board Container */
+.notice-board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%; /* Adjust as needed for your layout */
+  }
+  
+  /* Notice Cards */
+  .notice-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px; /* Adjust the maximum width as needed */
+  }
+  
+  .notice-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    white-space: pre-wrap; /* Preserve white spaces and line breaks */
+  }
+  
+  .notice-card h3 {
+    margin: 0 0 10px;
+  }
+  
+  .notice-card p {
+    margin: 0;
+    white-space: pre-wrap; /* Preserve white spaces and line breaks */
+  }
+  
+  /* Notice Card Actions */
+  .notice-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .notice-card-actions button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Edit Button */
+  .notice-card-actions .edit-button {
+    border: 1px solid #007bff;
+    background-color: white;
+    color: #007bff;
+  }
+  
+  .notice-card-actions .edit-button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Delete Button */
+  .notice-card-actions .delete-button {
+    border: none;
+    background-color: red;
+    color: white;
+  }
+  
+  .notice-card-actions .delete-button:hover {
+    background-color: #cc0000;
+  }
+  
+  /* Popup Styles */
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 400px;
+    max-width: 90%;
+  }
+  
+  .popup-content h3 {
+    margin-bottom: 20px;
+  }
+  
+  .popup-content form div {
+    margin-bottom: 15px;
+  }
+  
+  .popup-content input,
+  .popup-content textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Update and Add Buttons */
+  .update-button,
+  .add-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .update-button:hover,
+  .add-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Cancel Button */
+  .cancel-button {
+    padding: 10px 20px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .cancel-button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Delete Confirmation Popup */
+  .stay-button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .stay-button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .yes-button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .yes-button:hover {
+    background-color: #cc0000;
+  }
+  
+  /* Plus Button */
+  .plus-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px; /* Adjust if you prefer a different border radius */
+    width: 40px; /* Adjust to your desired width */
+    height: 40px; /* Same as width to make it square */
+    text-align: center;
+    line-height: 20px; /* Adjust to center the "+" sign vertically */
+    font-weight: bold; /* Optional: makes the "+" sign stand out */
+  }
+  
+  .plus-button:hover {
+    background-color: #0056b3;
+  }
+  

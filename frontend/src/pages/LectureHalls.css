@@ -1,0 +1,46 @@
+/* src/pages/LectureHalls.css */
+.lecture-halls-container {
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.lecture-halls-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Create a 4-column grid */
+  grid-template-rows: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust row height */
+  gap: 20px; /* Space between the cards */
+}
+
+.lecture-hall-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lecture-hall-card h2 {
+  margin-top: 0;
+}
+
+.lecture-hall-card p {
+  margin: 8px 0;
+}
