@@ -1,15 +1,35 @@
-// src/pages/Labs.jsx
-import React from 'react';
-import LecturerNavBar from '../components/LecturerNavBar'; // Ensure the correct path is used
-//import './Labs.css'; // Create a separate CSS file for the page
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import LecturerNavBar from '../components/LecturerNavBar';
+import './Labs.css';
 
 const Labs = () => {
+  const [labs, setLabs] = useState([]);
+
+  useEffect(() => {
+    const fetchLabs = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/labs');
+        setLabs(response.data);
+      } catch (error) {
+        console.error('Error fetching labs:', error);
+      }
+    };
+
+    fetchLabs();
+  }, []);
+
   return (
-    <div className="labs-page">
+    <div className="labs-container">
       <LecturerNavBar />
-      <div className="content">
-        <h1>Labs</h1>
-        {/* Additional lab-related content can be added here */}
+      <div className="labs-grid">
+        {labs.map((lab) => (
+          <div key={lab._id} className="lab-card">
+            <h2>{lab.LabName}</h2>
+            <p>Department: {lab.Department}</p>
+            <p>Capacity: {lab.Capacity}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

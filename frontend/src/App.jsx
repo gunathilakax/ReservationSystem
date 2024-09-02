@@ -16,6 +16,7 @@ import AdminLabs from './pages/AdminLabs';
 import ReservationsPage from './pages/ReservationsPage';
 import LecturerBookingPage from './pages/LecturerBookingPage'; // Import new page
 
+
 const App = () => {
   return (
     <Router>

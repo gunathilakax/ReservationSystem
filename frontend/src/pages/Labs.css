@@ -1,0 +1,26 @@
+/* src/pages/Labs.css */
+.labs-container {
+    padding: 20px;
+  }
+  
+  .labs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .lab-card {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lab-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .lab-card p {
+    margin: 5px 0;
+  }
+  

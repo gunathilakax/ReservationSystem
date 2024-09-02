@@ -17,7 +17,8 @@ router.post('/', async (req, res) => {
       date,
       duration,
       timeSlot,
-      note
+      note,
+      username
     });
 
     await newBookingRequest.save();

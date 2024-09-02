@@ -1,15 +1,36 @@
 // src/pages/AdminLabs.jsx
-import React from 'react';
-import AdminNavBar from '../components/AdminNavBar'; // Ensure the correct path is used
-//import './AdminLabs.css'; // Create a separate CSS file for the page
+import React, { useEffect, useState } from 'react';
+import AdminNavBar from '../components/AdminNavBar';
+import axios from 'axios';
+import './AdminLabs.css';
 
 const AdminLabs = () => {
+  const [labs, setLabs] = useState([]);
+
+  useEffect(() => {
+    const fetchLabs = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/labs');
+        setLabs(response.data);
+      } catch (error) {
+        console.error('Error fetching labs:', error);
+      }
+    };
+
+    fetchLabs();
+  }, []);
+
   return (
     <div className="admin-labs-page">
       <AdminNavBar />
-      <div className="content">
-        <h1>Admin Labs</h1>
-        {/* Additional admin lab-related content can be added here */}
+      <div className="labs-container">
+        {labs.map((lab) => (
+          <div key={lab._id} className="lab-card">
+            <h3>{lab.LabName}</h3>
+            <p>Department: {lab.Department}</p>
+            <p>Capacity: {lab.Capacity}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
