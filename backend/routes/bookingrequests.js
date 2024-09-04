@@ -1,11 +1,10 @@
-// src/routes/bookingrequests.js
 const express = require('express');
 const router = express.Router();
 const BookingRequest = require('../models/BookingRequests');
 
 // Route to handle new booking request
 router.post('/', async (req, res) => {
-  const { fullName, email, phone, department, numberOfStudents, date, duration, timeSlot, note, username } = req.body;
+  const { fullName, email, phone, department, numberOfStudents, roomType, room, date, duration, timeSlot, note, username } = req.body;
 
   try {
     const newBookingRequest = new BookingRequest({
@@ -14,6 +13,8 @@ router.post('/', async (req, res) => {
       phone,
       department,
       numberOfStudents,
+      roomType, // New field
+      room,     // New field
       date,
       duration,
       timeSlot,

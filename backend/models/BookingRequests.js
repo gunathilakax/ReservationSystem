@@ -1,4 +1,3 @@
-// src/models/BookingRequest.js
 const mongoose = require('mongoose');
 
 const BookingRequestSchema = new mongoose.Schema({
@@ -7,6 +6,8 @@ const BookingRequestSchema = new mongoose.Schema({
   phone: { type: String, required: true },
   department: { type: String, required: true },
   numberOfStudents: { type: Number, required: true },
+  roomType: { type: String, required: true }, // New field
+  room: { type: String, required: true },     // New field
   date: { type: Date, required: true },
   duration: { type: String, required: true },
   timeSlot: { type: String, required: true },

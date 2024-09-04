@@ -1,4 +1,3 @@
-// src/pages/LecturerBookingPage.jsx
 import React, { useState, useEffect } from 'react';
 import LecturerNavBar from '../components/LecturerNavBar';
 import axios from 'axios';
@@ -11,6 +10,8 @@ const LecturerBookingPage = () => {
     phone: '',
     department: '',
     numberOfStudents: '',
+    roomType: '',  // New state for selecting Lecture Hall or Lab
+    room: '',      // New state for selected room
     date: '',
     duration: '',
     timeSlot: '',
@@ -59,9 +60,9 @@ const LecturerBookingPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleDurationChange = (e) => {
+  const handleRoomTypeChange = (e) => {
     const { value } = e.target;
-    setFormData({ ...formData, duration: value, timeSlot: '' });
+    setFormData({ ...formData, roomType: value, room: '' });  // Reset room selection when roomType changes
   };
 
   const handleSubmit = async (e) => {
@@ -77,12 +78,13 @@ const LecturerBookingPage = () => {
       setFormData({
         ...formData,
         numberOfStudents: '',
+        roomType: '',  // Reset the roomType field
+        room: '',      // Reset the room field
         date: '',
         duration: '',
         timeSlot: '',
         note: '',
       });
-      // Fetch the updated list of booking requests
       const response = await axios.get(`http://localhost:5000/api/bookingrequests?username=${username}`);
       setBookingRequests(response.data);
     } catch (error) {
@@ -121,12 +123,42 @@ const LecturerBookingPage = () => {
             <input type="number" name="numberOfStudents" value={formData.numberOfStudents} onChange={handleChange} required />
           </div>
           <div>
+            <label>Lecture Hall or Lab:</label>
+            <select name="roomType" value={formData.roomType} onChange={handleRoomTypeChange} required>
+              <option value="">Select Type</option>
+              <option value="Lecture Hall">Lecture Hall</option>
+              <option value="Lab">Lab</option>
+            </select>
+          </div>
+          {formData.roomType && (
+            <div>
+              <label>{formData.roomType}:</label>
+              <select name="room" value={formData.room} onChange={handleChange} required>
+                <option value="">Select {formData.roomType}</option>
+                {formData.roomType === 'Lecture Hall' && (
+                  <>
+                    <option value="FF01">FF01</option>
+                    <option value="FF02">FF02</option>
+                    <option value="FF03">FF03</option>
+                  </>
+                )}
+                {formData.roomType === 'Lab' && (
+                  <>
+                    <option value="ICT Common Lab 1">ICT Common Lab 1</option>
+                    <option value="ICT Common Lab 2">ICT Common Lab 2</option>
+                    <option value="Multimedia Lab">Multimedia Lab</option>
+                  </>
+                )}
+              </select>
+            </div>
+          )}
+          <div>
             <label>Date:</label>
             <input type="date" name="date" value={formData.date} onChange={handleChange} required />
           </div>
           <div>
             <label>Select Duration:</label>
-            <select name="duration" value={formData.duration} onChange={handleDurationChange} required>
+            <select name="duration" value={formData.duration} onChange={handleChange} required>
               <option value="">Select Duration</option>
               <option value="1 hour">1 hour</option>
               <option value="2 hours">2 hours</option>
@@ -187,7 +219,7 @@ const LecturerBookingPage = () => {
                 <p><strong>Date:</strong> {new Date(request.date).toLocaleDateString()}</p>
                 <p><strong>Duration:</strong> {request.duration}</p>
                 <p><strong>Time Slot:</strong> {request.timeSlot}</p>
-                <p><strong>Number of Students:</strong> {request.numberOfStudents}</p>
+                <p><strong>Room:</strong> {request.room}</p>
                 <p><strong>Note:</strong> {request.note}</p>
               </div>
             ))
