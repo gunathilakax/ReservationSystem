@@ -13,8 +13,8 @@ router.post('/', async (req, res) => {
       phone,
       department,
       numberOfStudents,
-      roomType, // New field
-      room,     // New field
+      roomType,
+      room,
       date,
       duration,
       timeSlot,
@@ -34,7 +34,10 @@ router.get('/', async (req, res) => {
   const { username } = req.query;
 
   try {
-    const bookingRequests = await BookingRequest.find({ username });
+    const bookingRequests = username 
+      ? await BookingRequest.find({ username }) 
+      : await BookingRequest.find(); // Get all booking requests if no username is provided
+
     res.status(200).json(bookingRequests);
   } catch (err) {
     res.status(500).json({ error: err.message });

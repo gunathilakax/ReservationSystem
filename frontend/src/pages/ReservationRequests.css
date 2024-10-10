@@ -1,0 +1,47 @@
+.admin-booking-container {
+    padding: 20px;
+  }
+  
+  .booking-requests {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .booking-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .booking-card:hover {
+    background-color: #f0f0f0; /* Light grey on hover */
+  }
+  
+  .booking-card.expanded {
+    background-color: #e0e7ff; /* Light blue for expanded cards */
+  }
+  
+  .expanded-details {
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+
+  .book-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4caf50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .book-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
