@@ -1,36 +1,44 @@
-// src/routes/lecturehall.js
+// routes/reservations.js
 const express = require('express');
+const Reservation = require('../models/Reservation');
 const router = express.Router();
-const LectureHall = require('../models/LectureHall');
 
-// Route to add a reservation to a specific lecture hall
-router.post('/reserve', async (req, res) => {
-  const { hallNo, date, timeSlot } = req.body;
+// POST route to create a new reservation
+router.post('/', async (req, res) => {
+  const { fullName, email, phone, department, numberOfStudents, roomType, room, date, duration, timeSlot, note, username } = req.body;
 
   try {
-    const lectureHall = await LectureHall.findOne({ "Hall No":hallNo });
+    const newReservation = new Reservation({
+      fullName,
+      email,
+      phone,
+      department,
+      numberOfStudents,
+      roomType,
+      room,
+      date,
+      duration,
+      timeSlot,
+      note,
+      username
+    });
 
-    if (!lectureHall) {
-      return res.status(404).json({ message: 'Lecture hall not found' });
-    }
+    await newReservation.save();
+    return res.status(201).json(newReservation);
+  } catch (error) {
+    return res.status(500).json({ message: 'Failed to create reservation.', error });
+  }
+});
 
-    // Check if the time slot on that date is already booked
-    const isAlreadyReserved = lectureHall.reservations.some(
-      reservation => reservation.date.toISOString().split('T')[0] === new Date(date).toISOString().split('T')[0] &&
-                     reservation.timeSlot === timeSlot
-    );
+// GET route to fetch all reservations for a specific user
+router.get('/', async (req, res) => {
+  const { username } = req.query;
 
-    if (isAlreadyReserved) {
-      return res.status(400).json({ message: 'This time slot is already booked' });
-    }
-
-    // Add the new reservation
-    lectureHall.reservations.push({ date, timeSlot });
-
-    await lectureHall.save();
-    res.status(200).json({ message: 'Reservation added successfully' });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  try {
+    const reservations = await Reservation.find({ username });
+    return res.status(200).json(reservations);
+  } catch (error) {
+    return res.status(500).json({ message: 'Failed to fetch reservations.', error });
   }
 });
 
