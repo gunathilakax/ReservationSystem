@@ -14,7 +14,9 @@ import AdminLectureHalls from './pages/AdminLectureHalls';
 import Labs from './pages/Labs';
 import AdminLabs from './pages/AdminLabs';
 import ReservationsPage from './pages/ReservationsPage';
-import LecturerBookingPage from './pages/LecturerBookingPage'; // Import new page
+import LecturerBookingPage from './pages/LecturerBookingPage';
+import LecturerCalendarPage from './pages/LecturerCalendarPage';
+import AdminCalendarPage from './pages/AdminCalendarPage';
 
 
 const App = () => {
@@ -35,7 +37,8 @@ const App = () => {
         <Route path="/admin-labs" element={<AdminLabs />} />
         <Route path="/reservations" element={<ReservationsPage />} />
         <Route path="/booking" element={<LecturerBookingPage />} /> {/* Add route */}
-        {/* Add other routes as needed */}
+        <Route path="/calendar" element={<LecturerCalendarPage />} />
+        <Route path="/admin-calendar" element={<AdminCalendarPage />} />
       </Routes>
     </Router>
   );

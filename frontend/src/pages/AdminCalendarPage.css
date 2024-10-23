@@ -1,0 +1,19 @@
+.admin-calendar-page {
+    padding: 20px;
+  }
+  
+  .content {
+    margin-top: 20px;
+  }
+  
+  .calendar {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .selected-date {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+  
