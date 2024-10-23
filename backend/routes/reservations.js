@@ -45,5 +45,20 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+// Route to get reservations by date (GET request)
+router.get('/', async (req, res) => {
+  const { date } = req.query;
+
+  try {
+    let query = {};
+    if (date) query.date = new Date(date); // Ensure the date is in the correct format
+
+    const reservations = await Reservation.find(query);
+
+    res.status(200).json(reservations);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 module.exports = router;
