@@ -1,9 +1,8 @@
-// routes/reservations.js
 const express = require('express');
-const Reservation = require('../models/Reservation');
 const router = express.Router();
+const Reservation = require('../models/Reservation');
 
-// POST route to create a new reservation
+// Route to handle new reservation (POST request)
 router.post('/', async (req, res) => {
   const { fullName, email, phone, department, numberOfStudents, roomType, room, date, duration, timeSlot, note, username } = req.body;
 
@@ -20,25 +19,28 @@ router.post('/', async (req, res) => {
       duration,
       timeSlot,
       note,
-      username
+      username,
     });
 
     await newReservation.save();
-    return res.status(201).json(newReservation);
-  } catch (error) {
-    return res.status(500).json({ message: 'Failed to create reservation.', error });
+    res.status(201).json(newReservation);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 });
 
-// GET route to fetch all reservations for a specific user
+// Route to get reservations by username (GET request)
 router.get('/', async (req, res) => {
   const { username } = req.query;
 
   try {
-    const reservations = await Reservation.find({ username });
-    return res.status(200).json(reservations);
-  } catch (error) {
-    return res.status(500).json({ message: 'Failed to fetch reservations.', error });
+    const reservations = username 
+      ? await Reservation.find({ username }) 
+      : await Reservation.find(); // Get all reservations if no username is provided
+
+    res.status(200).json(reservations);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
