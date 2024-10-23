@@ -29,14 +29,16 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Route to get reservations by username (GET request)
+// Route to get reservations by username and optionally by date (GET request)
 router.get('/', async (req, res) => {
-  const { username } = req.query;
+  const { username, date } = req.query;
 
   try {
-    const reservations = username 
-      ? await Reservation.find({ username }) 
-      : await Reservation.find(); // Get all reservations if no username is provided
+    let query = {};
+    if (username) query.username = username;
+    if (date) query.date = new Date(date); // Ensure the date is in the correct format
+
+    const reservations = await Reservation.find(query);
 
     res.status(200).json(reservations);
   } catch (err) {
