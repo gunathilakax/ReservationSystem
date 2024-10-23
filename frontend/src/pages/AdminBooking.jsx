@@ -6,6 +6,7 @@ import './AdminBooking.css'; // Adjust the CSS file name as needed
 const AdminBooking = () => {
   const [formData, setFormData] = useState({
     fullName: '',
+    username: '', // Moved username after fullName
     email: '',
     phone: '',
     department: '',
@@ -19,7 +20,6 @@ const AdminBooking = () => {
 
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const username = sessionStorage.getItem('username');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,13 +36,11 @@ const AdminBooking = () => {
     setError('');
 
     try {
-      await axios.post('http://localhost:5000/api/reservations', {
-        ...formData,
-        username,
-      });
+      await axios.post('http://localhost:5000/api/reservations', formData);
       setShowModal(true);
       setFormData({
         fullName: '',
+        username: '', // Reset username field
         email: '',
         phone: '',
         department: '',
@@ -71,6 +69,10 @@ const AdminBooking = () => {
           <div>
             <label>Full Name:</label>
             <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
+          </div>
+          <div>
+            <label>Username:</label> {/* Added username after full name */}
+            <input type="text" name="username" value={formData.username} onChange={handleChange} required />
           </div>
           <div>
             <label>Email:</label>
