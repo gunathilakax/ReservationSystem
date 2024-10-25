@@ -51,7 +51,7 @@ const LecturerNavBar = () => {
               <ul>
                 <li onClick={() => navigate('/lecturer')}>Notice Board</li>
                 <li onClick={() => navigate('/profile')}>Profile</li>
-                <li onClick={() => navigate('/my-reservations')}>My Reservations</li>
+                <li onClick={() => navigate('/reservations')}>My Reservations</li>
                 <li onClick={() => navigate('/calendar')}>Calendar</li>
                 <li onClick={handleLogout}>Logout</li>
               </ul>

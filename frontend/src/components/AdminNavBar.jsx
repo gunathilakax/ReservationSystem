@@ -51,7 +51,6 @@ const AdminNavBar = () => {
               <ul>
                 <li onClick={() => navigate('/admin')}>Notice Board</li>
                 <li onClick={() => navigate('/admin-profile')}>Profile</li>
-                <li onClick={() => navigate('/my-reservations')}>My Reservations</li>
                 <li onClick={() => navigate('/admin-calendar')}>Calendar</li>
                 <li onClick={handleLogout}>Logout</li>
               </ul>

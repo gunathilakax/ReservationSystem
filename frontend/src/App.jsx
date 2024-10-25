@@ -18,7 +18,6 @@ import LecturerBookingPage from './pages/LecturerBookingPage';
 import LecturerCalendarPage from './pages/LecturerCalendarPage';
 import AdminCalendarPage from './pages/AdminCalendarPage';
 
-
 const App = () => {
   return (
     <Router>
