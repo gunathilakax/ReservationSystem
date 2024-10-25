@@ -45,13 +45,21 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-// Route to get reservations by date (GET request)
+// Route to get reservations by date and optionally by room (GET request)
 router.get('/', async (req, res) => {
-  const { date } = req.query;
+  const { date, room } = req.query;
 
   try {
     let query = {};
-    if (date) query.date = new Date(date); // Ensure the date is in the correct format
+    
+    if (date) {
+      query.date = new Date(date); // Ensure the date is in the correct format
+    }
+    
+    // Only filter by room if it's provided and not empty
+    if (room) {
+      query.room = room; 
+    }
 
     const reservations = await Reservation.find(query);
 
@@ -60,5 +68,6 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 
 module.exports = router;

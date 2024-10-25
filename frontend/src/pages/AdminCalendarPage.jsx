@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './AdminCalendarPage.css';
@@ -8,20 +8,31 @@ import axios from 'axios';
 const AdminCalendarPage = () => {
   const [date, setDate] = useState(new Date());
   const [reservations, setReservations] = useState([]);
+  const [selectedRoom, setSelectedRoom] = useState('');
 
-  const handleDateChange = async (newDate) => {
+  // Fetch reservations whenever date or selectedRoom changes
+  useEffect(() => {
+    const fetchReservations = async () => {
+      const formattedDate = date.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+      try {
+        const response = await axios.get('http://localhost:5000/api/reservations', {
+          params: { date: formattedDate, room: selectedRoom }, // Pass both date and room
+        });
+        setReservations(response.data);
+      } catch (err) {
+        console.error('Failed to fetch reservations:', err);
+      }
+    };
+
+    fetchReservations();
+  }, [date, selectedRoom]); // Depend on date and selectedRoom
+
+  const handleDateChange = (newDate) => {
     setDate(newDate);
-    const formattedDate = newDate.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+  };
 
-    // Fetch reservations for the selected date and room FF01
-    try {
-      const response = await axios.get('http://localhost:5000/api/reservations', {
-        params: { date: formattedDate, room: 'FF01' }, // Room parameter added
-      });
-      setReservations(response.data);
-    } catch (err) {
-      console.error('Failed to fetch reservations:', err);
-    }
+  const handleRoomChange = (event) => {
+    setSelectedRoom(event.target.value);
   };
 
   return (
@@ -34,9 +45,18 @@ const AdminCalendarPage = () => {
           value={date}
           className="calendar"
         />
+        <div className="room-selection">
+          <label htmlFor="room">Select Room: </label>
+          <select id="room" value={selectedRoom} onChange={handleRoomChange}>
+            <option value="">All Rooms</option>
+            <option value="FF01">FF01</option>
+            <option value="FF02">FF02</option>
+            <option value="FF03">FF03</option>
+          </select>
+        </div>
         <div className="selected-date">
           <h2>Selected Date: {date.toLocaleDateString()}</h2>
-          <h3>Reservations for Room FF01 on this date:</h3>
+          <h3>Reservations for this date:</h3>
           {reservations.length === 0 ? (
             <p>No reservations found for this date and room.</p>
           ) : (
@@ -45,6 +65,7 @@ const AdminCalendarPage = () => {
                 <h4>{reservation.room}</h4>
                 <p>{new Date(reservation.date).toLocaleDateString()}</p>
                 <p>Time Slot: {reservation.timeSlot}</p>
+                <p>Reserved by: {reservation.fullName}</p>
               </div>
             ))
           )}
