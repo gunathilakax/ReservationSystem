@@ -1,0 +1,81 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0099CC;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .container {
+    width: 1200px; /* Maximum width */
+    margin: 0 auto; /* Center the container */
+    /*padding: 0 1.25rem; /* Horizontal padding */
+  }
+  
+  .info-section, .contact-section {
+    flex: 1;
+    text-align: center; /* Center text on small screens */
+    margin-bottom: 2rem; /* Space between sections */
+  }
+  
+  .footer-title {
+    font-size: 1.5rem; /* Font size for section titles */
+    font-weight: bold; /* Bold text */
+  }
+  
+  .footer-links, .social-links {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+  }
+  
+  .footer-links li, .social-links li {
+    margin: 0.5rem 0; /* Space between links */
+  }
+  
+  .footer-links a, .social-links a {
+    color: white; /* White text color */
+    transition: color 0.3s; /* Smooth color transition */
+  }
+  
+  .footer-links a:hover, .social-links a:hover {
+    color: #f18930; /* Change color on hover */
+  }
+  
+  .footer-bottom {
+    background-color: white; /* White background for bottom section */
+    color: black; /* Black text color */
+    padding: 1rem 0; /* Padding for bottom section */
+    margin-top: 2rem; /* Space above the bottom section */
+  }
+  
+  .footer-bottom-container {
+    display: flex;
+    flex-direction: column; /* Stack items on small screens */
+    align-items: center; /* Center items */
+  }
+  
+  .footer-bottom-container p {
+    margin: 0; /* Remove margin for paragraph */
+  }
+  
+  .social-links {
+    display: flex;
+    margin-top: 1rem; /* Space above social links */
+    gap: 1rem; /* Space between icons */
+  }
+
+  .info-section {
+    text-align: left;
+  }
+
+  .contact-section {
+    text-align: right;
+  }
+  
+  
