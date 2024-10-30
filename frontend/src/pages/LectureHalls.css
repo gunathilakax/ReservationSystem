@@ -2,6 +2,7 @@
 .lecture-halls-container {
   margin-top: 400px;
   padding: 100px;
+  background-color: #fff;
 }
 
 .tabs {
@@ -45,3 +46,14 @@
 .lecture-hall-card p {
   margin: 8px 0;
 }
+
+.lecture-hall-image {
+  width: 100%;
+  height: calc(100vh - 150px);
+  object-fit: cover;
+  margin: 0;
+  /*border-bottom: 4px solid #007bff;*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  margin-bottom: 20px;
+}
+
