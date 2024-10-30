@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AdminNavBar from '../components/AdminNavBar';
 import LecturerList from '../components/LecturerList';  // Import the new component
-//import './AdminLecturerPage.css';
+import './AdminLecturerPage.css';
 import axios from 'axios';
 
 const AdminLecturerPage = () => {
