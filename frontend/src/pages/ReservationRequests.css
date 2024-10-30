@@ -1,47 +1,97 @@
+/* AdminBooking.css */
+
 .admin-booking-container {
-    padding: 20px;
-  }
-  
-  .booking-requests {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-  }
-  
-  .booking-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .booking-card:hover {
-    background-color: #f0f0f0; /* Light grey on hover */
-  }
-  
-  .booking-card.expanded {
-    background-color: #e0e7ff; /* Light blue for expanded cards */
-  }
-  
-  .expanded-details {
-    margin-top: 10px;
-    padding: 10px;
-    border-top: 1px solid #ccc;
-  }
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    min-height: 100vh; /* Ensure full height */
+}
 
-  .book-button {
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2rem;
+}
+
+.error {
+    color: #d9534f; /* Red for error messages */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.booking-requests {
+    width: 100%;
+    max-width: 800px; /* Limit width */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between cards */
+}
+
+.booking-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: 1px solid transparent; /* Initial border */
+}
+
+.booking-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #007bff; /* Highlight on hover */
+}
+
+.booking-card h3 {
+    margin: 0;
+    color: #007bff; /* Use blue for names */
+}
+
+.expanded-details {
     margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #4caf50; /* Green background */
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.expanded-details p {
+    margin: 5px 0;
+}
+
+strong {
+    color: #333;
+}
+
+.book-button {
+    background-color: #28a745; /* Green for booking button */
     color: white;
     border: none;
     border-radius: 5px;
+    padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .book-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-  }
-  
+    transition: background-color 0.3s ease;
+}
+
+.book-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+@media (max-width: 768px) {
+    .admin-booking-container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .booking-card {
+        padding: 10px;
+    }
+
+    .book-button {
+        width: 100%; /* Full width on smaller screens */
+    }
+}

@@ -106,5 +106,10 @@
 }
 
 .sidebar ul li:hover {
-  background-color: #0099CC;
+  background-color: #60aec8;
+}
+
+.profile-btn .profile-image {
+  width: 30px;  /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
 }

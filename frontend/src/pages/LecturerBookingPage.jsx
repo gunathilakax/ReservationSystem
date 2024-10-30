@@ -97,7 +97,7 @@ const LecturerBookingPage = () => {
   };
 
   return (
-    <div className="booking-container">
+    <div className="booking-containerr">
       <LecturerNavBar />
       <div className="form-section">
         <h2>Book a Room</h2>
@@ -214,7 +214,7 @@ const LecturerBookingPage = () => {
         <div className="booking-requests">
           {bookingRequests.length > 0 ? (
             bookingRequests.map((request) => (
-              <div className="booking-card" key={request._id}>
+              <div className="lecturer-booking-card" key={request._id}>
                 <h3>Booking Request</h3>
                 <p><strong>Date:</strong> {new Date(request.date).toLocaleDateString()}</p>
                 <p><strong>Duration:</strong> {request.duration}</p>

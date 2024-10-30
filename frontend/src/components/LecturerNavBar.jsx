@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './NavBar.css'; // Use the same CSS for consistency
 import { useNavigate } from 'react-router-dom';
+import ProfileImage from '../assets/ProfileImage.png';
 
 const LecturerNavBar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -45,7 +46,9 @@ const LecturerNavBar = () => {
           </button>
         </div>
         <div className="navbar-right">
-          <button className="profile-btn" onClick={toggleProfileMenu}>Profile</button>
+          <button className="profile-btn" onClick={toggleProfileMenu}>
+            <img src={ProfileImage} alt="Profile" className="profile-image" />
+          </button>
           {profileMenuOpen && (
             <div className="profile-menu" ref={profileMenuRef}>
               <ul>

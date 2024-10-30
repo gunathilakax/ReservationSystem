@@ -7,7 +7,7 @@ const AdminPage = () => {
   return (
     <div>
       <AdminNavBar />
-      <br/><br/><br/>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       <NoticeBoard isAdmin={true} />
     </div>
   );

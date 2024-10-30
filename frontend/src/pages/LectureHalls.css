@@ -1,5 +1,6 @@
 /* src/pages/LectureHalls.css */
 .lecture-halls-container {
+  margin-top: 400px;
   padding: 100px;
 }
 
@@ -18,7 +19,7 @@
 }
 
 .tabs button.active {
-  background-color: #007bff;
+  background-color: #0099CC;
   color: #fff;
 }
 

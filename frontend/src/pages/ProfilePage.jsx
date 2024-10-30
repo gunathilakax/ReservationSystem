@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import LecturerNavBar from '../components/LecturerNavBar';
 import axios from 'axios';
 import './ProfilePage.css';
+import ProfileImage from '../assets/Profile.jpg';
 
 const ProfilePage = () => {
   const [lecturer, setLecturer] = useState(null);
@@ -29,13 +30,15 @@ const ProfilePage = () => {
     <div>
       <LecturerNavBar /><br /><br />
       <div className="profile-container">
-        <h1>Profile</h1>
-        <p><strong>Full Name:</strong> {lecturer.fullName}</p>
-        <p><strong>Email:</strong> {lecturer.email}</p>
-        <p><strong>Phone:</strong> {lecturer.phone}</p>
-        <p><strong>Department:</strong> {lecturer.department}</p>
-        <p><strong>Subject:</strong> {lecturer.subject}</p>
-        <p><strong>Username:</strong> {lecturer.username}</p>
+        <img src={ProfileImage} alt="Profile" className="profile-image" />
+        <p>{lecturer.username}</p>
+        <p> {lecturer.email}</p>
+        <p />
+        <p>{lecturer.fullName}</p>
+        <p>{lecturer.phone}</p>
+        <p>Department : {lecturer.department}</p>
+        <p>Subject : {lecturer.subject}</p>
+        
       </div>
     </div>
   );

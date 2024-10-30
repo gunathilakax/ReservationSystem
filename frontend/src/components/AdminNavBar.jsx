@@ -45,7 +45,7 @@ const AdminNavBar = () => {
           </button>
         </div>
         <div className="navbar-right">
-          <button className="profile-btn" onClick={toggleProfileMenu}>Profile</button>
+          <button className="profile-btn" onClick={toggleProfileMenu}>Admin</button>
           {profileMenuOpen && (
             <div className="profile-menu" ref={profileMenuRef}>
               <ul>
