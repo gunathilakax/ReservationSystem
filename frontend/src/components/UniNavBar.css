@@ -1,0 +1,19 @@
+.uni-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0099CC;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    height: 40px; /* Adjust logo size as needed */
+    margin-left: 20px; /* Add margin to the left */
+  }
+  

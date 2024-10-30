@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import LecturerNavBar from '../components/LecturerNavBar';
 import axios from 'axios';
+import './ProfilePage.css';
 
 const ProfilePage = () => {
   const [lecturer, setLecturer] = useState(null);

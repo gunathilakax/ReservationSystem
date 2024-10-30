@@ -161,7 +161,7 @@ const AdminBooking = () => {
               </select>
             </div>
           )}
-          <button type="submit">Submit</button>
+          <button type="submit">Sumit</button>
           {error && <p className="error">{error}</p>}
         </form>
         {showModal && (
