@@ -1,12 +1,12 @@
 /* General styles for the booking page */
-.booking-container {
+/*.booking-container {
   max-width: 600px;
   margin: auto;
   padding: 50px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 8px;
   background-color: #f9f9f9;
-}
+}*/
 
 .booking-container h2 {
   text-align: center;
@@ -40,9 +40,9 @@
   resize: vertical;
 }
 
-.booking-container form button[type="submit"] {
+/*.booking-container form button[type="submit"] {
   padding: 10px;
-  background-color: #28a745; /* Green color */
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
@@ -51,7 +51,7 @@
 
 .booking-container form button[type="submit"]:hover {
   background-color: #218838;
-}
+}*/
 
 /* Modal (pop-up) styles */
 .modal-overlay {
@@ -78,13 +78,13 @@
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  background-color: #f39c12; /* Orange color */
+  background-color: #0099CC; /* Orange color */
   color: #fff;
   cursor: pointer;
 }
 
 .modal-button:hover {
-  background-color: #e67e22;
+  background-color: #006699;
 }
 
 /* src/pages/LecturerBookingPage.css */
@@ -98,11 +98,26 @@ margin-top: 400px;
 margin-bottom: 40px;
 }
 
+button {
+  padding: 10px;
+  background-color: #0099CC; /* Primary button color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded button */
+  font-size: 16px; /* Larger font size */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+  background-color: #006699; /* Darker shade on hover */
+}
+
 .requests-section {
 margin-top: 40px;
 }
 
-.booking-card {
+.lecturer-booking-card {
 border: 1px solid #ddd;
 border-radius: 8px;
 padding: 15px;
@@ -111,7 +126,7 @@ background-color: #fff;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.booking-card h3 {
+.lecturer-booking-card h3 {
 margin-top: 0;
 }
 

@@ -1,12 +1,15 @@
 /* AdminBooking.css */
 
 .admin-booking-container {
+    margin-top: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     background-color: #f4f4f4;
+    width: 600px;
     min-height: 100vh; /* Ensure full height */
+    border-radius: 10px;
 }
 
 h2 {
@@ -42,12 +45,12 @@ h2 {
 .booking-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: 1px solid #007bff; /* Highlight on hover */
+    /*border: 1px solid #007bff; */
 }
 
 .booking-card h3 {
     margin: 0;
-    color: #007bff; /* Use blue for names */
+    color: #000000; /* Use blue for names */
 }
 
 .expanded-details {
@@ -65,7 +68,7 @@ strong {
 }
 
 .book-button {
-    background-color: #28a745; /* Green for booking button */
+    background-color: #0099CC; /* Green for booking button */
     color: white;
     border: none;
     border-radius: 5px;
@@ -75,7 +78,7 @@ strong {
 }
 
 .book-button:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #006699; /* Darker green on hover */
 }
 
 @media (max-width: 768px) {

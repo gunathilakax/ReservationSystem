@@ -98,7 +98,7 @@ const LecturerBookingPage = () => {
 
   return (
     <div className="booking-containerr">
-      <LecturerNavBar />
+      <LecturerNavBar /><br /><br />
       <div className="form-section">
         <h2>Book a Room</h2>
         <form onSubmit={handleSubmit}>

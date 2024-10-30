@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AdminNavBar from '../components/AdminNavBar'; // Adjust the path if necessary
-import './AdminBooking.css'; // Make sure to create this CSS file for styles
+import './ReservationRequests.css'; // Make sure to create this CSS file for styles
 
 const ReservationRequests = () => {
   const [bookingRequests, setBookingRequests] = useState([]);

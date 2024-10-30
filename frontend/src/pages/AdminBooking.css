@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #f0f4f8; /* Light background color */
+  width: 500px;
   min-height: 100vh; /* Ensure full height */
 }
 
@@ -49,7 +49,7 @@ select:focus {
 
 button {
   padding: 10px;
-  background-color: #007bff; /* Primary button color */
+  background-color: #0099CC; /* Primary button color */
   color: white; /* Button text color */
   border: none; /* Remove border */
   border-radius: 4px; /* Rounded button */
@@ -59,7 +59,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: #006699; /* Darker shade on hover */
 }
 
 .error {
