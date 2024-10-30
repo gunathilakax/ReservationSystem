@@ -1,8 +1,9 @@
 /* src/pages/LectureHalls.css */
 .lecture-halls-container {
-  margin-top: 400px;
-  padding: 100px;
+  margin-top: 480px;
+  padding: 50px;
   background-color: #fff;
+  border-radius: 8px;
 }
 
 .tabs {

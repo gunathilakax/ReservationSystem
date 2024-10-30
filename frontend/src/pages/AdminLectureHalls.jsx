@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavBar from '../components/AdminNavBar'; // Import AdminNavBar
 import './AdminLectureHalls.css'; // Import the CSS file for styling
+import LectureHallImage from '../assets/Lecture_Hall.jpg';
 
 const AdminLectureHalls = () => {
   const [lectureHalls, setLectureHalls] = useState([]);
@@ -41,6 +42,7 @@ const AdminLectureHalls = () => {
   return (
     <div className="admin-lecture-halls-container">
       <AdminNavBar />
+      <img src={LectureHallImage} alt="Lecture Hall" className="lecture-hall-image" />
       <div className="tabs">
         <button
           className={activeTab === 'LGF' ? 'active' : ''}

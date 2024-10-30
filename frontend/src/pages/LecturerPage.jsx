@@ -2,13 +2,15 @@
 import React from 'react';
 import LecturerNavBar from '../components/LecturerNavBar';
 import NoticeBoard from '../components/NoticeBoard';
+import './LecturerPage.css';
 
 const LecturerPage = () => {
   return (
     <div>
       <LecturerNavBar />
-      <br/><br/>
+      <div className='notice-board-containor'>
       <NoticeBoard isAdmin={false} />
+      </div>
     </div>
   );
 };

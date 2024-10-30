@@ -1,7 +1,9 @@
 /* src/pages/AdminLectureHalls.css */
 .admin-lecture-halls-container {
-    margin-top: 400px;
-    padding: 100px;
+    margin-top: 1000px;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 8px;
   }
   
   .tabs {
@@ -41,6 +43,16 @@
   
   .lecture-hall-card p {
     margin: 5px 0;
+  }
+
+  .lecture-hall-image {
+    width: 100%;
+    height: calc(100vh - 150px);
+    object-fit: cover;
+    margin: 0;
+    /*border-bottom: 4px solid #007bff;*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 20px;
   }
   
   
