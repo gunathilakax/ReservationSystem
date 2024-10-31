@@ -1,4 +1,4 @@
-.booking-container {
+.admin-booking-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@
   margin-top: 400px;
 }
 
-.form-section {
+.admin-booking-form-section {
   margin-top: 20px;
   background-color: white; /* White background for the form */
   border-radius: 8px; /* Rounded corners */
@@ -20,22 +20,22 @@
   width: 100%; /* Responsive width */
 }
 
-h2 {
+.admin-booking-form-section h2 {
   text-align: center; /* Centered heading */
-  color: #333; /* Darker text color */
+  color: #333333; /* Darker text color */
 }
 
-form {
+.admin-booking-form-section form {
   display: flex;
   flex-direction: column; /* Stack form elements vertically */
 }
 
-label {
+.admin-booking-form-section label {
   margin: 10px 0 5px; /* Spacing around labels */
   color: #555; /* Gray label color */
 }
 
-input,
+.admin-booking-form-section input,
 select {
   padding: 10px;
   border: 1px solid #ccc; /* Light border */
@@ -44,13 +44,13 @@ select {
   margin-bottom: 15px; /* Space between inputs */
 }
 
-input:focus,
+.admin-booking-form-section input:focus,
 select:focus {
   border-color: #007bff; /* Highlight border on focus */
   outline: none; /* Remove default outline */
 }
 
-button {
+.admin-booking-form-section button {
   padding: 10px;
   background-color: #0099CC; /* Primary button color */
   color: white; /* Button text color */
@@ -61,16 +61,16 @@ button {
   transition: background-color 0.3s; /* Smooth transition */
 }
 
-button:hover {
-  background-color: #006699; /* Darker shade on hover */
+.admin-booking-form-section button:hover {
+  background-color: #998a00; /* Darker shade on hover */
 }
 
-.error {
+.admin-booking-error {
   color: red; /* Red color for error messages */
   text-align: center; /* Center error message */
 }
 
-.modal-overlay {
+.admin-booking-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -82,7 +82,7 @@ button:hover {
   align-items: center; /* Center modal */
 }
 
-.modal-content {
+.admin-booking-modal-content {
   background-color: white; /* White background for modal */
   padding: 20px;
   border-radius: 8px; /* Rounded corners for modal */
@@ -90,7 +90,7 @@ button:hover {
   text-align: center; /* Center text in modal */
 }
 
-.modal-button {
+.admin-booking-modal-button {
   padding: 10px;
   background-color: #0099CC; /* Primary button color */
   color: white; /* Button text color */
@@ -100,6 +100,6 @@ button:hover {
   transition: background-color 0.3s; /* Smooth transition */
 }
 
-.modal-button:hover {
+.admin-booking-modal-button:hover {
   background-color: #006699; /* Darker shade on hover */
 }

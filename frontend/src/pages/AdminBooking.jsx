@@ -72,9 +72,9 @@ const AdminBooking = () => {
   };
 
   return (
-    <div className="booking-container">
+    <div className="admin-booking-container">
       <AdminNavBar />
-      <div className="form-section">
+      <div className="admin-booking-form-section">
         <h2>Book a Room</h2>
         <form onSubmit={handleSubmit}>
           <div>
@@ -176,10 +176,10 @@ const AdminBooking = () => {
           {error && <p className="error">{error}</p>}
         </form>
         {showModal && (
-          <div className="modal-overlay">
-            <div className="modal-content">
+          <div className="admin-booking-modal-overlay">
+            <div className="admin-booking-modal-content">
               <p>Booking completed successfully.</p>
-              <button className="modal-button" onClick={handleCloseModal}>OK</button>
+              <button className="admin-booking-modal-button" onClick={handleCloseModal}>OK</button>
             </div>
           </div>
         )}
