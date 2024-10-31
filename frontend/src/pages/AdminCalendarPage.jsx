@@ -1,9 +1,9 @@
+// src/pages/AdminCalendarPage.jsx
 import React, { useState, useEffect } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
 import './AdminCalendarPage.css';
 import AdminNavBar from '../components/AdminNavBar';
 import axios from 'axios';
+import CustomCalendar from '../components/CustomCalendar';
 
 const AdminCalendarPage = () => {
   const [date, setDate] = useState(new Date());
@@ -16,7 +16,7 @@ const AdminCalendarPage = () => {
       const formattedDate = date.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
       try {
         const response = await axios.get('http://localhost:5000/api/reservations', {
-          params: { date: formattedDate, room: selectedRoom }, // Pass both date and room
+          params: { date: formattedDate, room: selectedRoom },
         });
         setReservations(response.data);
       } catch (err) {
@@ -25,7 +25,7 @@ const AdminCalendarPage = () => {
     };
 
     fetchReservations();
-  }, [date, selectedRoom]); // Depend on date and selectedRoom
+  }, [date, selectedRoom]);
 
   const handleDateChange = (newDate) => {
     setDate(newDate);
@@ -40,11 +40,7 @@ const AdminCalendarPage = () => {
       <AdminNavBar />
       <div className="content">
         <h1>Admin Calendar</h1>
-        <Calendar
-          onChange={handleDateChange}
-          value={date}
-          className="calendar"
-        />
+        <CustomCalendar date={date} onDateChange={handleDateChange} />
         <div className="room-selection">
           <label htmlFor="room">Select Room: </label>
           <select id="room" value={selectedRoom} onChange={handleRoomChange}>

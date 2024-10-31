@@ -1,0 +1,81 @@
+/* src/components/CustomCalendar.css */
+
+.calendar {
+  max-width: 400px; /* Set maximum width */
+  margin: 20px auto; /* Center the calendar */
+  border: 2px solid #007bff; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* To keep rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.react-calendar {
+  background: #ffffff; /* Background color */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.react-calendar__tile {
+  padding: 10px; /* Padding for tiles */
+  transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+.react-calendar__tile--active {
+  background: #0099CC; /* Active tile color */
+  color: #ffffff; /* Active tile text color */
+}
+
+.react-calendar__tile:hover {
+  background: #0099CC; /* Hover effect color */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+/* Styles for year view month tiles */
+.react-calendar__year-view__months__month {
+  color: #000000; /* Color for month tiles in year view */
+}
+
+.react-calendar__year-view__months__month:hover {
+  background: #f0f0f0; /* Optional hover effect for month tiles */
+}
+
+/* Styles for month and year labels */
+.react-calendar__navigation__label {
+  color: #000000; /* Month and year labels color */
+}
+
+.react-calendar__navigation button {
+  color: #000000; /* Navigation buttons color */
+}
+
+.react-calendar__navigation button:hover {
+  background: #006699; /* Hover effect for navigation buttons */
+  color: #ffffff; /* Text color on hover */
+}
+
+/* Ensure the weekdays are also black */
+.react-calendar__month-view__weekdays {
+  background: #0099CC; /* Header background */
+  color: #000000; /* Changed header text color to black */
+}
+
+.react-calendar__month-view__days__day {
+  color: #333; /* Default text color */
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #b0b0b0; /* Neighboring month days color */
+}
+
+.react-calendar__month-view__days__day--today {
+  border: 2px solid #006699; /* Border for today's date */
+  border-radius: 50%; /* Round today's date */
+  background: #e7f1ff; /* Background color for today */
+}
+
+.react-calendar, .react-calendar *, .react-calendar *:before, .react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: black;
+}
