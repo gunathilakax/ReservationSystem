@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LecturerNavBar from '../components/LecturerNavBar';
 import './Labs.css';
+import LabImage from '../assets/Lab.jpg';
 
 const Labs = () => {
   const [labs, setLabs] = useState([]);
@@ -20,12 +21,13 @@ const Labs = () => {
   }, []);
 
   return (
-    <div className="labs-container">
+    <div className="lec-labs-container">
       <LecturerNavBar />
-      <div className="labs-grid">
+      <img src={LabImage} alt="Lab" className="lec-lab-image" />
+      <div className="lec-labs-grid">
         {labs.map((lab) => (
-          <div key={lab._id} className="lab-card">
-            <h2>{lab.LabName}</h2>
+          <div key={lab._id} className="lec-lab-card">
+            <h3>{lab.LabName}</h3>
             <p>Department: {lab.Department}</p>
             <p>Capacity: {lab.Capacity}</p>
           </div>

@@ -4,7 +4,8 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    width: 80%; /* Adjust as needed for your layout */
+    width: 900px; /* Adjust as needed for your layout */
+    background-color: #ccc;
   }
   
   /* Notice Cards */
@@ -12,8 +13,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100%;
-    max-width: 800px; /* Adjust the maximum width as needed */
+    /*width: 100%;*/
+    width: 800px; /* Adjust the maximum width as needed */
   }
   
   .notice-card {

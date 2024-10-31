@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import AdminNavBar from '../components/AdminNavBar';
 import axios from 'axios';
 import './AdminLabs.css';
+import LabImage from '../assets/Lab.jpg';
 
 const AdminLabs = () => {
   const [labs, setLabs] = useState([]);
@@ -23,6 +24,7 @@ const AdminLabs = () => {
   return (
     <div className="admin-labs-page">
       <AdminNavBar />
+      <img src={LabImage} alt="Lab" className="lab-image" />
       <div className="labs-container">
         {labs.map((lab) => (
           <div key={lab._id} className="lab-card">

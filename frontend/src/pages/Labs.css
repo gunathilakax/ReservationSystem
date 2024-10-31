@@ -1,26 +1,40 @@
 /* src/pages/Labs.css */
-.labs-container {
+.lec-labs-container {
     padding: 20px;
   }
   
-  .labs-grid {
+  .lec-labs-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    margin-top: 20px;
   }
   
-  .lab-card {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  .lec-lab-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .lab-card h2 {
-    margin-bottom: 10px;
+  .lec-lab-card h2 {
+    margin: 0 0 10px;
   }
   
-  .lab-card p {
+  .lec-lab-card p {
     margin: 5px 0;
   }
+
+  .lec-lab-image {
+    width: 100%;
+    height: calc(100vh - 150px);
+    object-fit: cover;
+    margin: 0;
+    /*border-bottom: 4px solid #007bff;*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 20px;
+  }
+
+
   

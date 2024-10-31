@@ -27,7 +27,7 @@ const AdminLectureHalls = () => {
       .filter(hall => hall['Hall No'].startsWith(activeTab))
       .map(hall => (
         <div key={hall._id} className="lecture-hall-card">
-          <h2>{hall['Hall No']}</h2>
+          <h3>{hall['Hall No']}</h3>
           <p>Capacity: {hall.Capacity}</p>
           <p>Multimedia Projector: {hall['Multimedia Projector']}</p>
           <p>White Board: {hall['White Board']}</p>

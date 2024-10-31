@@ -27,7 +27,7 @@ const LectureHalls = () => {
       .filter(hall => hall['Hall No'].startsWith(activeTab))
       .map(hall => (
         <div key={hall._id} className="lecture-hall-card">
-          <h2>{hall['Hall No']}</h2>
+          <h3>{hall['Hall No']}</h3>
           <p>Capacity: {hall.Capacity}</p>
           <p>Multimedia Projector: {hall['Multimedia Projector']}</p>
           <p>White Board: {hall['White Board']}</p>
@@ -40,10 +40,10 @@ const LectureHalls = () => {
   };
 
   return (
-    <div className="lecture-halls-container">
+    <div className="lec-lecture-halls-container">
       <LecturerNavBar /> {/* Include LecturerNavBar here */}
-      <img src={LectureHallImage} alt="Lecture Hall" className="lecture-hall-image" />
-      <div className="tabs">
+      <img src={LectureHallImage} alt="Lecture Hall" className="lec-lecture-hall-image" />
+      <div className="lec-tabs">
         <button
           className={activeTab === 'LGF' ? 'active' : ''}
           onClick={() => setActiveTab('LGF')}
@@ -69,7 +69,7 @@ const LectureHalls = () => {
           SF
         </button>
       </div>
-      <div className="lecture-halls-grid">
+      <div className="lec-lecture-halls-grid">
         {renderLectureHalls()}
       </div>
     </div>
