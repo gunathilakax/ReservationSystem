@@ -33,7 +33,7 @@ const ReservationsPage = () => {
           ) : (
             reservations.map((reservation) => (
               <div className="my-reservation-card" key={reservation._id}>
-                <h4>{reservation.room}</h4>
+                <h3>{reservation.room}</h3>
                 <p>Date: {new Date(reservation.date).toLocaleDateString()}</p>
                 <p>Time Slot: {reservation.timeSlot}</p>
               </div>
