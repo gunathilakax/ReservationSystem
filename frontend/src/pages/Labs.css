@@ -1,8 +1,8 @@
 /* src/pages/Labs.css */
-.lec-labs-container {
+  .lec-labs-container {
     padding: 20px;
   }
-  
+    
   .lec-labs-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
