@@ -173,7 +173,7 @@ const AdminBooking = () => {
             </div>
           )}
           <button type="submit">Submit</button>
-          {error && <p className="error">{error}</p>}
+          {error && <p className="admin-booking-error">{error}</p>}
         </form>
         {showModal && (
           <div className="admin-booking-modal-overlay">

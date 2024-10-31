@@ -54,7 +54,7 @@ const ReservationRequests = () => {
     <div className="reservation-requests-container">
       <AdminNavBar />
       <h2>All Booking Requests</h2>
-      {error && <p className="error">{error}</p>}
+      {error && <p className="reservation-requests-error">{error}</p>}
       <div className="reservation-requests">
         {bookingRequests.length > 0 ? (
           bookingRequests.map((request) => (

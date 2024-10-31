@@ -1,13 +1,13 @@
 /* src/pages/LecturerCalendarPage.css */
 
-.calendar-page {
+.lec-calendar-page {
   margin-top: 20px;
   padding: 20px;
   background-image: url("../assets/bgimg.png");
   width: 1000px;
 }
 
-.lec-content {
+.lec-calendar-content {
   max-width: 800px;
   margin: 0 auto; /* Center the content */
   background-color: white; /* Card-like appearance */
@@ -16,44 +16,46 @@
   padding: 20px;
 }
 
-h1 {
+.lec-calendar-page h1 {
   text-align: center;
   color: #333; /* Darker text for readability */
 }
 
-.lec-selected-date {
+.lec-calendar-selected-date {
   text-align: center;
   margin-top: 100px;
   font-size: 1.2em;
 }
 
-.lec-reservations-list {
+.lec-calendar-reservations-list {
   display: grid; /* Use grid for flexible layout */
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive cards */
   gap: 15px; /* Spacing between cards */
   align-items: center;
 }
 
-.lec-reservation-card {
+.lec-calendar-reservation-card {
   background-color: #ffffff; /* Light blue background for reservation cards */
   border: 1px solid #c6d4e0; /* Light border */
   border-radius: 5px;
   padding: 15px;
   width: 400px;
   transition: box-shadow 0.3s; /* Smooth hover effect */
+  margin-left: 50%;
+  margin-bottom: 10px;
 }
 
-.lec-reservation-card:hover {
+.lec-calendar-reservation-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-h4 {
+.lec-calendar-reservation-card h4 {
   margin: 0; /* Remove default margin */
   color: #000000; /* Highlight the room title */
 }
 
-p {
+.lec-calendar-reservation-card p {
   margin: 5px 0; /* Space between paragraphs */
   color: #555; /* Slightly lighter text color */
 }

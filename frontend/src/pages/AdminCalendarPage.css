@@ -14,6 +14,11 @@
     padding: 20px;
   }
 
+  .admin-calendar-page h1 {
+    text-align: center;
+    color: #333; /* Darker text for readability */
+  }
+
   .admin-calendar-selected-date {
     text-align: center;
     margin-top: 100px;
@@ -27,9 +32,21 @@
     padding: 15px;
     width: 400px;
     transition: box-shadow 0.3s; /* Smooth hover effect */
+    margin-left: 25%;
+    margin-bottom: 10px;
   }
   
   .admin-calendar-reservation-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .admin-calendar-reservation-card h4 {
+    margin: 0; /* Remove default margin */
+    color: #000000; /* Highlight the room title */
+  }
+
+  .admin-calendar-reservation-card p {
+    margin: 5px 0; /* Space between paragraphs */
+    color: #555; /* Slightly lighter text color */
   }
