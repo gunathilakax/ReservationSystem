@@ -8,7 +8,7 @@ const LecturerPage = () => {
   return (
     <div>
       <LecturerNavBar />
-      <div className='notice-board-containor'>
+      <div className='notice-board-conttainor'>
       <NoticeBoard isAdmin={false} />
       </div>
     </div>

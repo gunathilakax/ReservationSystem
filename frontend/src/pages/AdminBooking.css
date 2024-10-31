@@ -5,6 +5,8 @@
   padding: 20px;
   width: 500px;
   min-height: 100vh; /* Ensure full height */
+  background-image: url("../assets/bgimg.png");
+  width: 1000px;
 }
 
 .form-section {

@@ -9,7 +9,9 @@
     background-color: #f4f4f4;
     width: 600px;
     min-height: 100vh; /* Ensure full height */
-    border-radius: 10px;
+    /*border-radius: 10px*/;
+    background-image: url("../assets/bgimg.png");
+    width: 1000px;
 }
 
 h2 {

@@ -38,8 +38,9 @@ const AdminCalendarPage = () => {
   return (
     <div className="admin-calendar-page">
       <AdminNavBar />
+      <h1>Admin Calendar</h1>
       <div className="content">
-        <h1>Admin Calendar</h1>
+        
         <CustomCalendar date={date} onDateChange={handleDateChange} />
         <div className="room-selection">
           <label htmlFor="room">Select Room: </label>
