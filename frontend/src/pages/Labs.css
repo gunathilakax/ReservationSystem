@@ -1,6 +1,9 @@
 /* src/pages/Labs.css */
   .lec-labs-container {
-    padding: 20px;
+    margin-top: 400px;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 8px;
   }
     
   .lec-labs-grid {
@@ -11,14 +14,13 @@
   }
   
   .lec-lab-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
-  .lec-lab-card h2 {
+  .lec-lab-card h3 {
     margin: 0 0 10px;
   }
   
