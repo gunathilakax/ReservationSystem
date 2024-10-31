@@ -1,8 +1,8 @@
 // src/pages/AdminLectureHalls.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AdminNavBar from '../components/AdminNavBar'; // Import AdminNavBar
-import './AdminLectureHalls.css'; // Import the CSS file for styling
+import AdminNavBar from '../components/LecturerNavBar'; // Import AdminNavBar
+import './LectureHalls.css'; // Import the CSS file for styling
 import LectureHallImage from '../assets/Lecture_Hall.jpg';
 import DefaultImage from '../assets/lecture-halls/default.png'; // Import the default image
 
