@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import LecturerNavBar from '../components/LecturerNavBar'; // Adjust the path as needed
 import axios from 'axios';
-import './ReservationsPage.css'; // Create a separate CSS file for styling the cards
+import './ReservationsPage.css';
 
 const ReservationsPage = () => {
   const [reservations, setReservations] = useState([]);
-  const [username, setUsername] = useState(sessionStorage.getItem('username')); // Assuming username is stored in sessionStorage
+  const [username, setUsername] = useState(sessionStorage.getItem('username'));
 
   useEffect(() => {
     const fetchReservations = async () => {
@@ -13,7 +13,10 @@ const ReservationsPage = () => {
         const response = await axios.get('http://localhost:5000/api/reservations', {
           params: { username },
         });
-        setReservations(response.data);
+
+        // Sort reservations by date in ascending order
+        const sortedReservations = response.data.sort((a, b) => new Date(a.date) - new Date(b.date));
+        setReservations(sortedReservations);
       } catch (err) {
         console.error('Failed to fetch reservations:', err);
       }
@@ -21,6 +24,8 @@ const ReservationsPage = () => {
 
     fetchReservations();
   }, [username]);
+
+  const isPastReservation = (date) => new Date(date) < new Date();
 
   return (
     <div className="my-reservations-page">
@@ -32,7 +37,10 @@ const ReservationsPage = () => {
             <p>No reservations found.</p>
           ) : (
             reservations.map((reservation) => (
-              <div className="my-reservation-card" key={reservation._id}>
+              <div
+                className={`my-reservation-card ${isPastReservation(reservation.date) ? 'past' : ''}`}
+                key={reservation._id}
+              >
                 <h3>{reservation.room}</h3>
                 <p>Date: {new Date(reservation.date).toLocaleDateString()}</p>
                 <p>Time Slot: {reservation.timeSlot}</p>

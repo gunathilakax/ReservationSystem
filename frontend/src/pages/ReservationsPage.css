@@ -50,3 +50,13 @@
   margin: 5px 0; /* Spacing for paragraph elements */
   color: #555; /* Subtle text color */
 }
+
+.past {
+  background-color: #d3d3d3; /* Gray background for past reservations */
+  color: #777; /* Gray text color for contrast */
+}
+
+.past h3,
+.past p {
+  color: #555; /* Subtle color for text inside past reservations */
+}
