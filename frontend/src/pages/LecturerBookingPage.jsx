@@ -225,7 +225,9 @@ const LecturerBookingPage = () => {
                 <p><strong>Time Slot:</strong> {request.timeSlot}</p>
                 <p><strong>Room Type:</strong> {request.roomType}</p>
                 <p><strong>Room:</strong> {request.room}</p>
-                <button onClick={() => handleCancelRequest(request._id)} className="cancel-button">Cancel</button>
+                <div className="lecbookingpage-booking-card-actions">
+                  <button onClick={() => handleCancelRequest(request._id)} className="cancel-button">Cancel</button>
+                </div>
               </div>
             ))
           ) : (

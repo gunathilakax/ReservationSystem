@@ -129,16 +129,34 @@ margin-top: 40px;
 }
 
 .lecbookingpage-lecturer-booking-card {
-border: 1px solid #ddd;
-border-radius: 8px;
-padding: 15px;
-margin-bottom: 15px;
-background-color: #fff;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 500px;
 }
 
 .lecbookingpage-lecturer-booking-card h3 {
 margin-top: 0;
 }
 
+.lecbookingpage-booking-card-actions {
+  display: flex;
+  justify-content: flex-end; /* Aligns the button to the right */
+  margin-top: 10px; /* Adds some space above the button */
+}
+
+.lecbookingpage-booking-card-actions .cancel-button {
+  background-color: #b71c1c; /* Set the background color to red */
+  color: white; /* Set text color to white */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded button */
+  padding: 8px 12px; /* Padding for the button */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.lecbookingpage-booking-card-actions .cancel-button .cancel-button:hover {
+  background-color: #9f1a1a; /* Darker shade on hover */
+}
