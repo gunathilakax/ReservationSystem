@@ -39,7 +39,7 @@ const AdminCalendarPage = () => {
     <div className="admin-calendar-page">
       <AdminNavBar />
       <h1>Admin Calendar</h1>
-      <div className="content">
+      <div className="admin-content">
         
         <CustomCalendar date={date} onDateChange={handleDateChange} />
         <div className="room-selection">
@@ -51,14 +51,14 @@ const AdminCalendarPage = () => {
             <option value="FF03">FF03</option>
           </select>
         </div>
-        <div className="selected-date">
+        <div className="admin-selected-date">
           <h2>Selected Date: {date.toLocaleDateString()}</h2>
           <h3>Reservations for this date:</h3>
           {reservations.length === 0 ? (
             <p>No reservations found for this date and room.</p>
           ) : (
             reservations.map((reservation) => (
-              <div className="reservation-card" key={reservation._id}>
+              <div className="admin-reservation-card" key={reservation._id}>
                 <h4>{reservation.room}</h4>
                 <p>{new Date(reservation.date).toLocaleDateString()}</p>
                 <p>Time Slot: {reservation.timeSlot}</p>

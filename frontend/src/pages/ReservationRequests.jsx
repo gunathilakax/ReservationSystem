@@ -24,6 +24,14 @@ const ReservationRequests = () => {
     fetchAllBookingRequests();
   }, []);
 
+  // Get booked card IDs from local storage
+  const getBookedCardIds = () => {
+    const bookedCards = localStorage.getItem('bookedCards');
+    return bookedCards ? JSON.parse(bookedCards) : [];
+  };
+
+  const [bookedCardIds, setBookedCardIds] = useState(getBookedCardIds());
+
   const handleCardClick = (id) => {
     if (expandedCard === id) {
       setExpandedCard(null);
@@ -33,6 +41,11 @@ const ReservationRequests = () => {
   };
 
   const handleBookClick = (request) => {
+    // Add the booking request ID to the booked cards
+    const updatedBookedCardIds = [...bookedCardIds, request._id];
+    setBookedCardIds(updatedBookedCardIds);
+    localStorage.setItem('bookedCards', JSON.stringify(updatedBookedCardIds)); // Save to local storage
+
     // Navigate to AdminBooking page and pass request data as state
     navigate('/admin-booking', { state: { bookingRequest: request } });
   };
@@ -46,7 +59,7 @@ const ReservationRequests = () => {
         {bookingRequests.length > 0 ? (
           bookingRequests.map((request) => (
             <div
-              className={`booking-card ${expandedCard === request._id ? 'expanded' : ''}`}
+              className={`booking-card ${bookedCardIds.includes(request._id) ? 'booked' : ''} ${expandedCard === request._id ? 'expanded' : ''}`}
               key={request._id}
               onClick={() => handleCardClick(request._id)}
             >
