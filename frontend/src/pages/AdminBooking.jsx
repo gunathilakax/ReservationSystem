@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 import AdminNavBar from '../components/AdminNavBar';
 import axios from 'axios';
 import './AdminBooking.css'; // Adjust the CSS file name as needed
 
 const AdminBooking = () => {
+  const location = useLocation(); // Get the location object
+  const bookingRequest = location.state?.bookingRequest; // Access the booking request from state
+
+  // Function to format date to 'YYYY-MM-DD'
+  const formatDate = (date) => {
+    if (!date) return '';
+    const d = new Date(date);
+    return d.toISOString().split('T')[0]; // Convert to 'YYYY-MM-DD' format
+  };
+
   const [formData, setFormData] = useState({
-    fullName: '',
-    username: '', // Moved username after fullName
-    email: '',
-    phone: '',
-    department: '',
-    numberOfStudents: '',
-    roomType: '',
-    room: '',
-    date: '',
-    duration: '',
-    timeSlot: '',
+    fullName: bookingRequest ? bookingRequest.fullName : '',
+    username: bookingRequest ? bookingRequest.username : '',
+    email: bookingRequest ? bookingRequest.email : '',
+    phone: bookingRequest ? bookingRequest.phone : '',
+    department: bookingRequest ? bookingRequest.department : '',
+    numberOfStudents: bookingRequest ? bookingRequest.numberOfStudents : '',
+    roomType: bookingRequest ? bookingRequest.roomType : '',
+    room: bookingRequest ? bookingRequest.room : '',
+    date: bookingRequest ? formatDate(bookingRequest.date) : '', // Format the date
+    duration: bookingRequest ? bookingRequest.duration : '',
+    timeSlot: bookingRequest ? bookingRequest.timeSlot : '',
   });
 
   const [error, setError] = useState('');
@@ -40,7 +51,7 @@ const AdminBooking = () => {
       setShowModal(true);
       setFormData({
         fullName: '',
-        username: '', // Reset username field
+        username: '',
         email: '',
         phone: '',
         department: '',
@@ -71,7 +82,7 @@ const AdminBooking = () => {
             <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
           </div>
           <div>
-            <label>Username:</label> {/* Added username after full name */}
+            <label>Username:</label>
             <input type="text" name="username" value={formData.username} onChange={handleChange} required />
           </div>
           <div>
@@ -167,7 +178,7 @@ const AdminBooking = () => {
         {showModal && (
           <div className="modal-overlay">
             <div className="modal-content">
-              <p>Booking request submitted successfully.</p>
+              <p>Booking completed successfully.</p>
               <button className="modal-button" onClick={handleCloseModal}>OK</button>
             </div>
           </div>

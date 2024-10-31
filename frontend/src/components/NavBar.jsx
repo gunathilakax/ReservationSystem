@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+/*import React, { useState, useEffect, useRef } from 'react';
 import './NavBar.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -72,3 +72,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+*/

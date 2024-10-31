@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AdminNavBar from '../components/AdminNavBar'; // Adjust the path if necessary
-import './ReservationRequests.css'; // Make sure to create this CSS file for styles
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import AdminNavBar from '../components/AdminNavBar';
+import './ReservationRequests.css';
 
 const ReservationRequests = () => {
   const [bookingRequests, setBookingRequests] = useState([]);
-  const [expandedCard, setExpandedCard] = useState(null); // To track which card is expanded
+  const [expandedCard, setExpandedCard] = useState(null);
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const fetchAllBookingRequests = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/bookingrequests');
-        console.log(response.data); // Log response for debugging
         setBookingRequests(response.data);
       } catch (error) {
         setError('Error fetching booking requests.');
@@ -25,21 +26,20 @@ const ReservationRequests = () => {
 
   const handleCardClick = (id) => {
     if (expandedCard === id) {
-      setExpandedCard(null); // Collapse if the same card is clicked
+      setExpandedCard(null);
     } else {
-      setExpandedCard(id); // Expand the clicked card
+      setExpandedCard(id);
     }
   };
 
   const handleBookClick = (request) => {
-    // Handle booking logic here
-    alert(`Booking confirmed for ${request.fullName}`);
-    // You can add more logic to process the booking if needed
+    // Navigate to AdminBooking page and pass request data as state
+    navigate('/admin-booking', { state: { bookingRequest: request } });
   };
 
   return (
     <div className="admin-booking-container">
-      <AdminNavBar /> {/* Include AdminNavBar here */}
+      <AdminNavBar />
       <h2>All Booking Requests</h2>
       {error && <p className="error">{error}</p>}
       <div className="booking-requests">
@@ -66,7 +66,7 @@ const ReservationRequests = () => {
                   <button 
                     className="book-button" 
                     onClick={(e) => {
-                      e.stopPropagation(); // Prevent triggering card click
+                      e.stopPropagation();
                       handleBookClick(request);
                     }}
                   >
