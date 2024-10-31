@@ -51,22 +51,22 @@ const ReservationRequests = () => {
   };
 
   return (
-    <div className="admin-booking-container">
+    <div className="reservation-requests-container">
       <AdminNavBar />
       <h2>All Booking Requests</h2>
       {error && <p className="error">{error}</p>}
-      <div className="booking-requests">
+      <div className="reservation-requests">
         {bookingRequests.length > 0 ? (
           bookingRequests.map((request) => (
             <div
-              className={`booking-card ${bookedCardIds.includes(request._id) ? 'booked' : ''} ${expandedCard === request._id ? 'expanded' : ''}`}
+              className={`reservation-requests-card ${bookedCardIds.includes(request._id) ? 'booked' : ''} ${expandedCard === request._id ? 'expanded' : ''}`}
               key={request._id}
               onClick={() => handleCardClick(request._id)}
             >
               <h3>{request.fullName}</h3>
               <p>{request.email}</p>
               {expandedCard === request._id && (
-                <div className="expanded-details">
+                <div className="reservation-requests-expanded-details">
                   <p><strong>Phone:</strong> {request.phone}</p>
                   <p><strong>Department:</strong> {request.department}</p>
                   <p><strong>Number of Students:</strong> {request.numberOfStudents}</p>
@@ -77,7 +77,7 @@ const ReservationRequests = () => {
                   <p><strong>Time Slot:</strong> {request.timeSlot}</p>
                   <p><strong>Note:</strong> {request.note}</p>
                   <button 
-                    className="book-button" 
+                    className="reservation-requests-book-button" 
                     onClick={(e) => {
                       e.stopPropagation();
                       handleBookClick(request);

@@ -1,5 +1,5 @@
 
-.admin-booking-container {
+.reservation-requests-container {
     margin-top: 200px;
     display: flex;
     flex-direction: column;
@@ -13,19 +13,19 @@
     width: 1000px;
 }
 
-h2 {
+.reservation-requests-container h2 {
     margin-bottom: 20px;
     color: #333;
     font-size: 2rem;
 }
 
-.error {
+.reservation-requests-error {
     color: #d9534f; /* Red for error messages */
     font-weight: bold;
     margin-bottom: 15px;
 }
 
-.booking-requests {
+.reservation-requests {
     width: 100%;
     max-width: 800px; /* Limit width */
     display: flex;
@@ -33,7 +33,7 @@ h2 {
     gap: 15px; /* Spacing between cards */
 }
 
-.booking-card {
+.reservation-requests-card {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -43,24 +43,24 @@ h2 {
     border: 1px solid transparent; /* Initial border */
 }
 
-.booking-card:hover {
+.reservation-requests-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     /*border: 1px solid #007bff; */
 }
 
-.booking-card h3 {
+.reservation-requests-card h3 {
     margin: 0;
     color: #000000; /* Use blue for names */
 }
 
-.expanded-details {
+.reservation-requests-expanded-details {
     margin-top: 10px;
     border-top: 1px solid #eee;
     padding-top: 10px;
 }
 
-.expanded-details p {
+.reservation-requests-expanded-details p {
     margin: 5px 0;
 }
 
@@ -68,7 +68,7 @@ strong {
     color: #333;
 }
 
-.book-button {
+.reservation-requests-book-button {
     background-color: #0099CC; /* Green for booking button */
     color: white;
     border: none;
@@ -78,29 +78,29 @@ strong {
     transition: background-color 0.3s ease;
 }
 
-.book-button:hover {
+.reservation-requests-book-button:hover {
     background-color: #006699; /* Darker green on hover */
 }
 
-.booking-card.booked {
+.reservation-requests-card.booked {
     background-color: #d3d3d3; /* Gray color for booked cards */
     cursor: not-allowed; /* Change cursor to indicate it can't be clicked */
 }
 
 @media (max-width: 768px) {
-    .admin-booking-container {
+    .reservation-requests-container {
         padding: 10px;
     }
 
-    h2 {
+    .reservation-requests-container h2 {
         font-size: 1.5rem;
     }
 
-    .booking-card {
+    .reservation-requests-card {
         padding: 10px;
     }
 
-    .book-button {
+    .reservation-requests-book-button {
         width: 100%; /* Full width on smaller screens */
     }
 }
