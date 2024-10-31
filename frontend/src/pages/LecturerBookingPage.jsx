@@ -10,8 +10,8 @@ const LecturerBookingPage = () => {
     phone: '',
     department: '',
     numberOfStudents: '',
-    roomType: '',  // New state for selecting Lecture Hall or Lab
-    room: '',      // New state for selected room
+    roomType: '',
+    room: '',
     date: '',
     duration: '',
     timeSlot: '',
@@ -60,11 +60,6 @@ const LecturerBookingPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleRoomTypeChange = (e) => {
-    const { value } = e.target;
-    setFormData({ ...formData, roomType: value, room: '' });  // Reset room selection when roomType changes
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -78,8 +73,8 @@ const LecturerBookingPage = () => {
       setFormData({
         ...formData,
         numberOfStudents: '',
-        roomType: '',  // Reset the roomType field
-        room: '',      // Reset the room field
+        roomType: '',
+        room: '',
         date: '',
         duration: '',
         timeSlot: '',
@@ -94,6 +89,16 @@ const LecturerBookingPage = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  // New function to handle booking request cancellation
+  const handleCancelRequest = async (requestId) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/bookingrequests/${requestId}`);
+      setBookingRequests(bookingRequests.filter((request) => request._id !== requestId));
+    } catch (error) {
+      console.error('Failed to cancel booking request:', error);
+    }
   };
 
   return (
@@ -124,7 +129,7 @@ const LecturerBookingPage = () => {
           </div>
           <div>
             <label>Lecture Hall or Lab:</label>
-            <select name="roomType" value={formData.roomType} onChange={handleRoomTypeChange} required>
+            <select name="roomType" value={formData.roomType} onChange={handleChange} required>
               <option value="">Select Type</option>
               <option value="Lecture Hall">Lecture Hall</option>
               <option value="Lab">Lab</option>
@@ -217,10 +222,10 @@ const LecturerBookingPage = () => {
               <div className="lecturer-booking-card" key={request._id}>
                 <h3>Booking Request</h3>
                 <p><strong>Date:</strong> {new Date(request.date).toLocaleDateString()}</p>
-                <p><strong>Duration:</strong> {request.duration}</p>
                 <p><strong>Time Slot:</strong> {request.timeSlot}</p>
+                <p><strong>Room Type:</strong> {request.roomType}</p>
                 <p><strong>Room:</strong> {request.room}</p>
-                <p><strong>Note:</strong> {request.note}</p>
+                <button onClick={() => handleCancelRequest(request._id)} className="cancel-button">Cancel</button>
               </div>
             ))
           ) : (

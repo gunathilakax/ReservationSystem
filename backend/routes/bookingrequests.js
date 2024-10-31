@@ -44,4 +44,19 @@ router.get('/', async (req, res) => {
   }
 });
 
+// DELETE route to handle deleting a booking request by ID
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedRequest = await BookingRequest.findByIdAndDelete(req.params.id);
+    if (!deletedRequest) {
+      return res.status(404).json({ message: 'Booking request not found' });
+    }
+    res.status(200).json({ message: 'Booking request deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting booking request:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
 module.exports = router;
