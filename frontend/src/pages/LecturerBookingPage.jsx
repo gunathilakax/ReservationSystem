@@ -102,9 +102,9 @@ const LecturerBookingPage = () => {
   };
 
   return (
-    <div className="booking-containor">
+    <div className="lecbookingpage-booking-containor">
       <LecturerNavBar /><br /><br />
-      <div className="forem-section">
+      <div className="lecbookingpage-forem-section">
         <h2>Book a Room</h2>
         <form onSubmit={handleSubmit}>
           <div>
@@ -206,20 +206,20 @@ const LecturerBookingPage = () => {
           {error && <p className="error">{error}</p>}
         </form>
         {showModal && (
-          <div className="modal-overlay">
-            <div className="modal-content">
+          <div className="booking-successful-modal-overlay">
+            <div className="booking-successful-modal-content">
               <p>Booking request submitted successfully.</p>
-              <button className="modal-button" onClick={handleCloseModal}>OK</button>
+              <button className="booking-successful-modal-button" onClick={handleCloseModal}>OK</button>
             </div>
           </div>
         )}
       </div>
-      <div className="requests-section">
+      <div className="lecbookingpage-requests-section">
         <h2>Your Booking Requests</h2>
-        <div className="booking-requests">
+        <div className="lecbookingpage-booking-requests">
           {bookingRequests.length > 0 ? (
             bookingRequests.map((request) => (
-              <div className="lecturer-booking-card" key={request._id}>
+              <div className="lecbookingpage-lecturer-booking-card" key={request._id}>
                 <h3>Booking Request</h3>
                 <p><strong>Date:</strong> {new Date(request.date).toLocaleDateString()}</p>
                 <p><strong>Time Slot:</strong> {request.timeSlot}</p>

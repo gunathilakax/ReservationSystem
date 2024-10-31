@@ -1,42 +1,53 @@
-/* General styles for the booking page */
-/*.booking-container {
-  max-width: 600px;
-  margin: auto;
-  padding: 50px;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}*/
+.lecbookingpage-booking-containor {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 500px;
+  min-height: 100vh; /* Ensure full height */
+  margin-top: 67px;
+  }
 
-.booking-container h2 {
+.lecbookingpage-forem-section {
+  margin-top: 400px;
+  background-color: white; /* White background for the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  max-width: 500px; /* Limit form width */
+  width: 100%; /* Responsive width */
+}
+
+.lecbookingpage-booking-containor h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.booking-container form {
+.lecbookingpage-booking-containor form {
   display: flex;
   flex-direction: column;
 }
 
-.booking-container form div {
+.lecbookingpage-booking-containor form div {
   margin-bottom: 15px;
 }
 
-.booking-container form label {
+.lecbookingpage-booking-containor form label {
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.booking-container form input,
-.booking-container form select,
-.booking-container form textarea {
+.lecbookingpage-booking-containor form input,
+.lecbookingpage-booking-containor form select,
+.lecbookingpage-booking-containor form textarea {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.booking-container form textarea {
+.lecbookingpage-booking-containor form textarea {
   resize: vertical;
 }
 
@@ -54,7 +65,7 @@
 }*/
 
 /* Modal (pop-up) styles */
-.modal-overlay {
+.booking-successful-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -66,7 +77,7 @@
   align-items: center;
 }
 
-.modal-content {
+.booking-successful-modal-content {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -74,7 +85,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.modal-button {
+.booking-successful-modal-button {
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -83,34 +94,17 @@
   cursor: pointer;
 }
 
-.modal-button:hover {
+.booking-successful-modal-button:hover {
   background-color: #006699;
 }
 
 /* src/pages/LecturerBookingPage.css */
 
-.booking-containor {
-padding: 20px;
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 20px;
-width: 500px;
-min-height: 100vh; /* Ensure full height */
-margin-top: 67px;
-}
 
-.forem-section {
-  margin-top: 400px;
-  background-color: white; /* White background for the form */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 20px;
-  max-width: 500px; /* Limit form width */
-  width: 100%; /* Responsive width */
-}
 
-button {
+
+
+.lecbookingpage-forem-section button {
   padding: 10px;
   background-color: #0099CC; /* Primary button color */
   color: white; /* Button text color */
@@ -121,15 +115,20 @@ button {
   transition: background-color 0.3s; /* Smooth transition */
 }
 
-button:hover {
+.lecbookingpage-forem-section button:hover {
   background-color: #006699; /* Darker shade on hover */
 }
 
-.requests-section {
+.lecbookingpage-requests-section {
 margin-top: 40px;
 }
 
-.lecturer-booking-card {
+.lecbookingpage-booking-requests {
+  display: flex;
+  flex-direction: column;
+}
+
+.lecbookingpage-lecturer-booking-card {
 border: 1px solid #ddd;
 border-radius: 8px;
 padding: 15px;
@@ -139,11 +138,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 width: 500px;
 }
 
-.lecturer-booking-card h3 {
+.lecbookingpage-lecturer-booking-card h3 {
 margin-top: 0;
 }
 
-.booking-requests {
-display: flex;
-flex-direction: column;
-}
