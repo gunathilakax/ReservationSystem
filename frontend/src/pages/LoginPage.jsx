@@ -37,7 +37,7 @@ const LoginPage = () => {
     <div className="login-container">
       <UniNavBar />
       <div className="login-header">
-        <img src={logo} alt="University Logo" className="logo" />
+        <img src={logo} alt="University Logo" className="login-logo" />
         <h1>FACULTY OF TECHNOLOGY</h1>
         <h2>UNIVERSITY OF SRI JAYEWARDENEPURA</h2>
       </div>
@@ -66,7 +66,7 @@ const LoginPage = () => {
           <input type="checkbox" id="remember" />
           <label htmlFor="remember">Remember username</label>
         </div>
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className="login-error-message">{error}</p>}
         <button type="submit" className="login-button">LOG IN</button>
         <div className="extra-info">
           <a href="#">Forgotten your username or password?</a>

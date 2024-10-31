@@ -5,11 +5,10 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    /*background-color: #f4f4f4;*/
-    width: 600px;
     min-height: 100vh; /* Ensure full height */
     /*border-radius: 10px*/;
     background-image: url("../assets/bgimg.png");
+    background-size: cover;
     width: 1000px;
 }
 
