@@ -101,8 +101,8 @@ const AdminLectureHalls = () => {
         const hallImage = hallImageMapping[hall['Hall No']] || DefaultImage; // Use default image if no match
 
         return (
-          <div key={hall._id} className="lecture-hall-card">
-            <img src={hallImage} alt={hall['Hall No']} className="hall-card-image" />
+          <div key={hall._id} className="lec-lecture-hall-card">
+            <img src={hallImage} alt={hall['Hall No']} className="lec-hall-card-image" />
             <h3>{hall['Hall No']}</h3>
             <p>Capacity: {hall.Capacity}</p>
             <p>Multimedia Projector: {hall['Multimedia Projector']}</p>
@@ -117,10 +117,10 @@ const AdminLectureHalls = () => {
   };
 
   return (
-    <div className="admin-lecture-halls-container">
+    <div className="lec-lecture-halls-container">
       <AdminNavBar />
-      <img src={LectureHallImage} alt="Lecture Hall" className="lecture-hall-image" />
-      <div className="tabs">
+      <img src={LectureHallImage} alt="Lecture Hall" className="lec-lecture-hall-image" />
+      <div className="lec-tabs">
         <button
           className={activeTab === 'LGF' ? 'active' : ''}
           onClick={() => setActiveTab('LGF')}
@@ -146,7 +146,7 @@ const AdminLectureHalls = () => {
           SF
         </button>
       </div>
-      <div className="admin-lecture-halls-grid">
+      <div className="lec-lecture-halls-grid">
         {renderLectureHalls()}
       </div>
     </div>

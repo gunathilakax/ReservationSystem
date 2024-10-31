@@ -1,33 +1,35 @@
 /* src/pages/AdminLabs.css */
 
-.admin-labs-page {
-    padding: 20px;
+  .admin-labs-page {
+    margin-top: 1000px;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 8px;
   }
   
-  .labs-container {
+  .admin-labs-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-top: 20px;
   }
   
-  .lab-card {
-    background-color: hsl(0, 0%, 98%);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .admin-lab-card {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
-  .lab-card h3 {
+  .admin-lab-card h3 {
     margin: 0 0 10px;
   }
   
-  .lab-card p {
+  .admin-lab-card p {
     margin: 5px 0;
   }
 
-  .lab-image {
+  .admin-lab-image {
     width: 100%;
     height: calc(100vh - 150px);
     object-fit: cover;

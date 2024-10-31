@@ -23,17 +23,17 @@ const ReservationsPage = () => {
   }, [username]);
 
   return (
-    <div className="reservations-page">
+    <div className="my-reservations-page">
       <LecturerNavBar />
-      <div className="content">
-        <h1>My Reservations</h1>
-        <div className="reservations-list">
+      <div className="my-reservation-content">
+        <h2>My Reservations</h2>
+        <div className="my-reservations-list">
           {reservations.length === 0 ? (
             <p>No reservations found.</p>
           ) : (
             reservations.map((reservation) => (
-              <div className="reservation-card" key={reservation._id}>
-                <h3>{reservation.room}</h3>
+              <div className="my-reservation-card" key={reservation._id}>
+                <h4>{reservation.room}</h4>
                 <p>Date: {new Date(reservation.date).toLocaleDateString()}</p>
                 <p>Time Slot: {reservation.timeSlot}</p>
               </div>

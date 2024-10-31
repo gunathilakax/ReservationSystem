@@ -100,8 +100,8 @@ const AdminLectureHalls = () => {
       .map(hall => {
         const hallImage = hallImages[hall['Hall No']] || DefaultImage; // Select image or use default
         return (
-          <div key={hall._id} className="lecture-hall-card">
-            <img src={hallImage} alt={hall['Hall No']} className="hall-card-image" />
+          <div key={hall._id} className="admin-lecture-hall-card">
+            <img src={hallImage} alt={hall['Hall No']} className="admin-hall-card-image" />
             <h3>{hall['Hall No']}</h3>
             <p>Capacity: {hall.Capacity}</p>
             <p>Multimedia Projector: {hall['Multimedia Projector']}</p>
@@ -118,8 +118,8 @@ const AdminLectureHalls = () => {
   return (
     <div className="admin-lecture-halls-container">
       <AdminNavBar />
-      <img src={LectureHallImage} alt="Lecture Hall" className="lecture-hall-image" />
-      <div className="tabs">
+      <img src={LectureHallImage} alt="Lecture Hall" className="admin-lecture-hall-image" />
+      <div className="admin-tabs">
         <button
           className={activeTab === 'LGF' ? 'active' : ''}
           onClick={() => setActiveTab('LGF')}

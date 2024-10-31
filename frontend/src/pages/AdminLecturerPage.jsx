@@ -44,10 +44,10 @@ const AdminLecturerPage = () => {
   return (
     <div className="admin-lecturer-page">
       <AdminNavBar /><br /><br />
-      <div className="content">
+      <div className="adlec-content">
         <h1>Add Lecturer/Admin</h1>
-        <form onSubmit={handleSubmit}>
-          <label>Full Name:
+        <form className="adlec-form" onSubmit={handleSubmit}>
+          <label className="addlec-label">Full Name:
             <input
               type="text"
               name="fullName"
@@ -56,7 +56,7 @@ const AdminLecturerPage = () => {
               required
             />
           </label>
-          <label>Email:
+          <label className="adlec-label">Email:
             <input
               type="email"
               name="email"
@@ -65,7 +65,7 @@ const AdminLecturerPage = () => {
               required
             />
           </label>
-          <label>Phone:
+          <label className="adlec-label">Phone:
             <input
               type="text"
               name="phone"
@@ -74,7 +74,7 @@ const AdminLecturerPage = () => {
               required
             />
           </label>
-          <label>Department:
+          <label className="adlec-label">Department:
             <input
               type="text"
               name="department"
@@ -83,7 +83,7 @@ const AdminLecturerPage = () => {
               required
             />
           </label>
-          <label>Subject:
+          <label className="adlec-label">Subject:
             <input
               type="text"
               name="subject"
@@ -92,7 +92,7 @@ const AdminLecturerPage = () => {
               required
             />
           </label>
-          <label>Username:
+          <label className="adlec-label">Username:
             <input
               type="text"
               name="username"
@@ -101,7 +101,7 @@ const AdminLecturerPage = () => {
               required
             />
           </label>
-          <label>Password:
+          <label className="adlec-label">Password:
             <input
               type="password"
               name="password"
@@ -110,7 +110,7 @@ const AdminLecturerPage = () => {
               required
             />
           </label>
-          <label>Role:
+          <label className="adlec-label">Role:
             <select
               name="role"
               value={formData.role}
@@ -121,7 +121,7 @@ const AdminLecturerPage = () => {
               <option value="admin">Admin</option>
             </select>
           </label>
-          <button type="submit">Add User</button>
+          <button type="submit" className="adlec-button">Add User</button>
         </form>
         <hr />
         <h2>Lecturers List</h2>

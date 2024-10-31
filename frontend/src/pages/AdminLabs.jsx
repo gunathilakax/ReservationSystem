@@ -24,10 +24,10 @@ const AdminLabs = () => {
   return (
     <div className="admin-labs-page">
       <AdminNavBar />
-      <img src={LabImage} alt="Lab" className="lab-image" />
-      <div className="labs-container">
+      <img src={LabImage} alt="Lab" className="admin-lab-image" />
+      <div className="admin-labs-container">
         {labs.map((lab) => (
-          <div key={lab._id} className="lab-card">
+          <div key={lab._id} className="admin-lab-card">
             <h3>{lab.LabName}</h3>
             <p>Department: {lab.Department}</p>
             <p>Capacity: {lab.Capacity}</p>
