@@ -1,24 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const Semester = require('../models/Semester'); // Assuming you have a Semester model
+const Semester = require('../models/Semester');
 
 // Route to save semester configuration (POST request)
 router.post('/', async (req, res) => {
-  const { startMonth, startYear, endMonth, endYear } = req.body;
+  const { start, end } = req.body;
 
   try {
-    // Check if there's already a configuration and update or create
+    // Either update existing or create new record
     let semesterConfig = await Semester.findOne();
     if (semesterConfig) {
       // Update existing configuration
-      semesterConfig.startMonth = startMonth;
-      semesterConfig.startYear = startYear;
-      semesterConfig.endMonth = endMonth;
-      semesterConfig.endYear = endYear;
+      semesterConfig.start = start;
+      semesterConfig.end = end;
       await semesterConfig.save();
     } else {
       // Create new configuration
-      semesterConfig = new Semester({ startMonth, startYear, endMonth, endYear });
+      semesterConfig = new Semester({ start, end });
       await semesterConfig.save();
     }
     res.status(201).json(semesterConfig);
@@ -31,7 +29,7 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const semesterConfig = await Semester.findOne();
-    res.status(200).json(semesterConfig || { startMonth: '', startYear: '', endMonth: '', endYear: '' });
+    res.status(200).json(semesterConfig || { start: {}, end: {} });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

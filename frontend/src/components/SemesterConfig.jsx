@@ -22,10 +22,14 @@ const SemesterConfig = () => {
 
     try {
       await axios.post('http://localhost:5000/api/semester', {
-        startMonth: startDate.toLocaleString('default', { month: 'long' }),
-        startYear: startDate.getFullYear(),
-        endMonth: endDate.toLocaleString('default', { month: 'long' }),
-        endYear: endDate.getFullYear(),
+        start: {
+          month: startDate.toLocaleString('default', { month: 'long' }),
+          year: startDate.getFullYear(),
+        },
+        end: {
+          month: endDate.toLocaleString('default', { month: 'long' }),
+          year: endDate.getFullYear(),
+        },
       });
       setSuccess('Semester configuration saved successfully!');
       setStartDate(null);
@@ -62,8 +66,8 @@ const SemesterConfig = () => {
           />
         </div>
         <button type="submit">Save</button>
-        {error && <p className="semester-config-error">{error}</p>}
-        {success && <p className="semester-config-success">{success}</p>}
+        {error && <p className="error">{error}</p>}
+        {success && <p className="success">{success}</p>}
       </form>
     </div>
   );
