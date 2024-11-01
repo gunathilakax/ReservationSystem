@@ -206,10 +206,10 @@ const LecturerBookingPage = () => {
           {error && <p className="error">{error}</p>}
         </form>
         {showModal && (
-          <div className="booking-successful-modal-overlay">
-            <div className="booking-successful-modal-content">
+          <div className="request-successful-modal-overlay">
+            <div className="request-successful-modal-content">
               <p>Booking request submitted successfully.</p>
-              <button className="booking-successful-modal-button" onClick={handleCloseModal}>OK</button>
+              <button className="request-successful-modal-button" onClick={handleCloseModal}>OK</button>
             </div>
           </div>
         )}

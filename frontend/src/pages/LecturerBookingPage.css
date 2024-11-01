@@ -65,7 +65,7 @@
 }*/
 
 /* Modal (pop-up) styles */
-.booking-successful-modal-overlay {
+.request-successful-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -77,7 +77,7 @@
   align-items: center;
 }
 
-.booking-successful-modal-content {
+.request-successful-modal-content {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -85,33 +85,37 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/*.booking-successful-modal-button {
+.request-successful-modal-button {
   padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
   background-color: #0099CC;
-  color: #fff;
+  color: white;
+  border: none;
+  border-radius: 20px;
   cursor: pointer;
-}*/
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
 
-.booking-successful-modal-button:hover {
+.lecbookingpage-forem-section .request-successful-modal-button:hover {
   background-color: #006699;
 }
 
 
 .lecbookingpage-forem-section button {
-  padding: 10px 20px;
-  background-color: #0099CC; /* Primary button color */
-  color: white; /* Button text color */
-  border: none; /* Remove border */
-  border-radius: 20px; /* Rounded button */
-  font-size: 16px; /* Larger font size */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s; /* Smooth transition */
+  padding: 12px;
+  background-color: #0099CC;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 15px;
 }
 
 .lecbookingpage-forem-section button:hover {
-  background-color: #006699; /* Darker shade on hover */
+  background-color: #006699;
 }
 
 .lecbookingpage-requests-section {
