@@ -18,7 +18,7 @@
 .my-reservation-content h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #333; /* Darker text for better contrast */
+  color: black; /* Darker text for better contrast */
   text-align: center; /* Center the heading */
 }
 

@@ -61,15 +61,17 @@ const LecturerList = () => {
         <p>No lecturers found.</p>
       ) : (
         lecturers.map((lecturer) => (
-          <div key={lecturer._id} className="lecturer-card">
-            <h3>{lecturer.fullName}</h3>
-            <p>Email: {lecturer.email}</p>
-            <p>Phone: {lecturer.phone}</p>
-            <p>Department: {lecturer.department}</p>
-            <p>Subject: {lecturer.subject}</p>
-            <button onClick={() => handleEditClick(lecturer)}>Edit</button>
-            <button onClick={() => handleRemoveClick(lecturer)}>Remove</button>
+        <div className="lecturer-card" key={lecturer._id}>
+          <h3>{lecturer.fullName}</h3>
+          <p>Email: {lecturer.email}</p>
+          <p>Phone: {lecturer.phone}</p>
+          <p>Department: {lecturer.department}</p>
+          <p>Subject: {lecturer.subject}</p>
+          <div className="button-container">
+            <button className="lecture-card-edit-button" onClick={() => handleEditClick(lecturer)}>Edit</button>
+            <button className="lecture-card-remove-button" onClick={() => handleRemoveClick(lecturer)}>Remove</button>
           </div>
+        </div>
         ))
       )}
       {editModalOpen && selectedLecturer && (

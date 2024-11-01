@@ -16,7 +16,7 @@
 
   .admin-calendar-page h1 {
     text-align: center;
-    color: #333; /* Darker text for readability */
+    color: black; /* Darker text for readability */
   }
 
   .admin-calendar-selected-date {

@@ -7,6 +7,10 @@
     width: 900px; /* Adjust as needed for your layout */
     background-color: #ccc;
   }
+
+  .notice-board-container h2{
+    color: black;
+  }
   
   /* Notice Cards */
   .notice-cards {
