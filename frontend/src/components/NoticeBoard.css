@@ -68,12 +68,12 @@
   /* Delete Button */
   .notice-card-actions .delete-button {
     border: none;
-    background-color: #b71c1c;
+    background-color: #cc0000;
     color: white;
   }
   
   .notice-card-actions .delete-button:hover {
-    background-color: #cc0000;
+    background-color: #b71c1c;
   }
   
   /* Popup Styles */

@@ -9,7 +9,7 @@ const AdminPage = () => {
   return (
     <div>
       <AdminNavBar />
-      <div className='notice-board-container'></div>
+      <div className='admin-notice-board-container'></div>
       <NoticeBoard isAdmin={true} />
       <SemesterConfig />
       <div></div>

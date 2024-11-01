@@ -1,5 +1,6 @@
 // src/pages/ProfilePage.jsx
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LecturerNavBar from '../components/LecturerNavBar';
 import axios from 'axios';
 import './ProfilePage.css';
@@ -7,7 +8,8 @@ import ProfileImage from '../assets/Profile.jpg';
 
 const ProfilePage = () => {
   const [lecturer, setLecturer] = useState(null);
-  const username = sessionStorage.getItem("username")
+  const username = sessionStorage.getItem("username");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLecturer = async () => {
@@ -21,6 +23,11 @@ const ProfilePage = () => {
 
     fetchLecturer();
   }, [username]);
+
+  const handleLogout = () => {
+    // Perform logout logic, e.g., clearing authentication tokens
+    navigate('/'); // Redirect to the login page
+  };
 
   if (!lecturer) {
     return <p>Loading...</p>;
@@ -40,6 +47,7 @@ const ProfilePage = () => {
         <p>Department : {lecturer.department}</p>
         <p>Subject : {lecturer.subject}</p>
         </div>
+        <button onClick={handleLogout} className="profile-logout-button">Logout</button>
       </div>
     </div>
   );

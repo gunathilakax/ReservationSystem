@@ -50,6 +50,23 @@ body {
     font-weight: normal;
 }
 
+/* ProfilePage.css */
+.profile-logout-button {
+    padding: 10px 15px;
+    background-color: #cc0000; /* Red background for logout */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px; /* Space from profile info section */
+    font-size: 16px;
+  }
+  
+  .profile-logout-button:hover {
+    background-color: #b71c1c; /* Darker red on hover */
+  }
+  
+
 /*strong {
     color: #007BFF; 
 }*/
