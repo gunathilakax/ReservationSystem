@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import AdminNavBar from '../components/AdminNavBar';
 import axios from 'axios';
@@ -31,6 +31,21 @@ const AdminBooking = () => {
   const [setForEveryWeek, setSetForEveryWeek] = useState(false);
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [semester, setSemester] = useState({ start: {}, end: {} }); // State to hold semester data
+
+  // Fetch semester configuration
+  useEffect(() => {
+    const fetchSemester = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/semester'); // Adjust the URL as necessary
+        setSemester(response.data);
+      } catch (error) {
+        console.error('Failed to fetch semester configuration:', error);
+      }
+    };
+
+    fetchSemester();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -77,6 +92,14 @@ const AdminBooking = () => {
       <AdminNavBar />
       <div className="admin-booking-form-section">
         <h2>Book a Room</h2>
+        
+        {/* Display semester information */}
+        <div className="semester-info">
+          <h3>Current Semester:</h3>
+          <p>Start: {semester.start.month} {semester.start.year}</p>
+          <p>End: {semester.end.month} {semester.end.year}</p>
+        </div>
+
         <form onSubmit={handleSubmit}>
           {/* Form Fields */}
           <div>
