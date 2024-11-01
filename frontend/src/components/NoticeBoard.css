@@ -46,7 +46,7 @@
   .notice-card-actions button {
     margin-left: 10px;
     padding: 8px 12px;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
   }
   
@@ -112,14 +112,15 @@
   }
   
   /* Update and Add Buttons */
-  .update-button,
+  .notice-board-popup-update-button,
   .add-button {
     padding: 10px 20px;
     border: none;
     background-color: #0099CC;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
+    margin: 10px;
   }
   
   .update-button:hover,
@@ -128,51 +129,51 @@
   }
   
   /* Cancel Button */
-  .cancel-button {
+  .notice-board-popup-cancel-button {
     margin-top: 10px;
     padding: 10px 20px;
     border: 1px solid black;
     background-color: white;
     color: black;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
   }
   
-  .cancel-button:hover {
+  .notice-board-popup-cancel-button:hover {
     background-color: #f1f1f1;
   }
   
   /* Delete Confirmation Popup */
-  .stay-button {
+  .notice-board-popup-stay-button {
     margin: 10px;
     padding: 10px 20px;
     border: 1px solid black;
     background-color: white;
     color: black;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
   }
   
-  .stay-button:hover {
+  .notice-board-popup-stay-button:hover {
     background-color: #f1f1f1;
   }
   
-  .yes-button {
+  .notice-board-popup-yes-button {
     margin: 10px;
     padding: 10px 20px;
     border: none;
     background-color: #b71c1c;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
   }
   
-  .yes-button:hover {
+  .notice-board-popup-yes-button:hover {
     background-color: #9f1a1a;
   }
   
   /* Plus Button */
-  .plus-button {
+  .notice-board-plus-button {
     display: block;
     margin: 20px auto;
     padding: 10px;
@@ -181,15 +182,15 @@
     color: white;
     font-size: 24px;
     cursor: pointer;
-    border-radius: 5px; /* Adjust if you prefer a different border radius */
-    width: 40px; /* Adjust to your desired width */
-    height: 40px; /* Same as width to make it square */
+    border-radius: 20px; /* Adjust if you prefer a different border radius */
+    width: 120px; /* Adjust to your desired width */
+    height: 50px; /* Same as width to make it square */
     text-align: center;
     line-height: 20px; /* Adjust to center the "+" sign vertically */
     font-weight: bold; /* Optional: makes the "+" sign stand out */
   }
   
-  .plus-button:hover {
+  .notice-board-plus-button:hover {
     background-color: #006699;
   }
   

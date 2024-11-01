@@ -101,12 +101,12 @@ const NoticeBoard = ({ isAdmin }) => {
           </div>
         ))}
         {notices.length > 0 && isAdmin && !showAddForm && (
-          <button className="plus-button" onClick={toggleAddForm}>+</button>
+          <button className="notice-board-plus-button" onClick={toggleAddForm}>+</button>
         )}
       </div>
 
       {notices.length === 0 && isAdmin && !showAddForm && (
-        <button className="plus-button" onClick={toggleAddForm}>+</button>
+        <button className="notice-board-plus-button" onClick={toggleAddForm}>+</button>
       )}
 
       {showAddForm && (
@@ -122,10 +122,10 @@ const NoticeBoard = ({ isAdmin }) => {
                 <label>Content: </label>
                 <textarea value={content} onChange={(e) => setContent(e.target.value)} required />
               </div>
-              <button type="submit" className="update-button">
+              <button type="submit" className="notice-board-popup-update-button">
                 {editId ? 'Update Notice' : 'Add Notice'}
               </button>
-              <button type="button" className="cancel-button" onClick={() => setShowAddForm(false)}>Cancel</button>
+              <button type="button" className="notice-board-popup-cancel-button" onClick={() => setShowAddForm(false)}>Cancel</button>
             </form>
           </div>
         </div>
@@ -135,8 +135,8 @@ const NoticeBoard = ({ isAdmin }) => {
         <div className="popup">
           <div className="popup-content">
             <p>Are You Sure You Want to Delete?</p>
-            <button className="stay-button" onClick={hideDeleteConfirmation}>Stay</button>
-            <button className="yes-button" onClick={handleDelete}>Yes</button>
+            <button className="notice-board-popup-stay-button" onClick={hideDeleteConfirmation}>Stay</button>
+            <button className="notice-board-popup-yes-button" onClick={handleDelete}>Yes</button>
           </div>
         </div>
       )}
@@ -154,7 +154,7 @@ const NoticeBoard = ({ isAdmin }) => {
                 <label>Content: </label>
                 <textarea value={content} onChange={(e) => setContent(e.target.value)} required />
               </div>
-              <button type="submit" className="update-button">Update Notice</button>
+              <button type="submit" className="notice-board-popup-update-button">Update Notice</button>
             </form>
           </div>
         </div>

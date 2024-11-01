@@ -34,11 +34,12 @@ const ProfilePage = () => {
         <p>{lecturer.username}</p>
         <p> {lecturer.email}</p>
         <p />
+        <div className="profile-info-section">
         <p>{lecturer.fullName}</p>
         <p>{lecturer.phone}</p>
         <p>Department : {lecturer.department}</p>
         <p>Subject : {lecturer.subject}</p>
-        
+        </div>
       </div>
     </div>
   );

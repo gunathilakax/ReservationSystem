@@ -85,31 +85,26 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.booking-successful-modal-button {
+/*.booking-successful-modal-button {
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  background-color: #0099CC; /* Orange color */
+  background-color: #0099CC;
   color: #fff;
   cursor: pointer;
-}
+}*/
 
 .booking-successful-modal-button:hover {
   background-color: #006699;
 }
 
-/* src/pages/LecturerBookingPage.css */
-
-
-
-
 
 .lecbookingpage-forem-section button {
-  padding: 10px;
+  padding: 10px 20px;
   background-color: #0099CC; /* Primary button color */
   color: white; /* Button text color */
   border: none; /* Remove border */
-  border-radius: 4px; /* Rounded button */
+  border-radius: 20px; /* Rounded button */
   font-size: 16px; /* Larger font size */
   cursor: pointer; /* Pointer cursor */
   transition: background-color 0.3s; /* Smooth transition */
@@ -152,7 +147,7 @@ margin-top: 0;
   background-color: #b71c1c; /* Set the background color to red */
   color: white; /* Set text color to white */
   border: none; /* Remove border */
-  border-radius: 4px; /* Rounded button */
+  border-radius: 20px; /* Rounded button */
   padding: 8px 12px; /* Padding for the button */
   cursor: pointer; /* Pointer cursor */
 }
