@@ -51,6 +51,13 @@
   resize: vertical;
 }
 
+.lecbookingpage-booking-containor form input:focus,
+.lecbookingpage-booking-containor form select:focus,
+.lecbookingpage-booking-containor form textarea:focus {
+  border-color: #000000;
+  outline: none;
+}
+
 .lecbookingpage-forem-section .request-successful-modal-button:hover {
   background-color: #006699;
 }

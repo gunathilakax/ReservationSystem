@@ -50,9 +50,9 @@ body {
     font-weight: normal;
 }
 
-strong {
-    color: #007BFF; /* Bootstrap Primary Color */
-}
+/*strong {
+    color: #007BFF; 
+}*/
 
 .profile-image {
     width: 150px; /* Adjust width as needed */

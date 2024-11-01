@@ -25,13 +25,17 @@
   }
   
   .confirm-button {
-    background-color: red;
+    background-color: #b71c1c;
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     margin-left: 10px; /* Changed from margin-right to margin-left */
+  }
+
+  .conform-button:hover {
+    background-color: #9f1a1a;
   }
   
   .cancel-button {
@@ -39,7 +43,10 @@
     color: black;
     padding: 10px 20px;
     border: 1px solid black;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
   }
   
+  .cancel-button:hover {
+    background-color: #f1f1f1;   
+  }
