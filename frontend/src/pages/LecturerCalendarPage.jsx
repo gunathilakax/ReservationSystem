@@ -28,9 +28,9 @@ const CalendarPage = () => {
   return (
     <div className="lec-calendar-page">
       <LecturerNavBar />
-      <h1>Calendar</h1>
+      
       <div className="lec-calendar-content">
-        
+      <h1>Calendar</h1>
         <CustomCalendar date={date} onDateChange={handleDateChange} />
         <div className="lec-calendar-selected-date">
           <h2>Selected Date: {date.toLocaleDateString()}</h2>

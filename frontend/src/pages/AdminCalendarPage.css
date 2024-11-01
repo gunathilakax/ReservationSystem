@@ -1,7 +1,7 @@
 .admin-calendar-page {
-    margin-top: 180px;
+    margin-top: 250px;
     padding: 20px;
-    background-image: url("../assets/bgimg.png");
+    /*background-image: url("../assets/bgimg.png");*/
     width: 1000px;
   }
   
@@ -14,7 +14,7 @@
     padding: 20px;
   }
 
-  .admin-calendar-page h1 {
+  .admin-calendar-content h1 {
     text-align: center;
     color: black; /* Darker text for readability */
   }

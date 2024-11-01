@@ -1,9 +1,9 @@
 /* src/pages/LecturerCalendarPage.css */
 
 .lec-calendar-page {
-  margin-top: 20px;
+  margin-top: 150px;
   padding: 20px;
-  background-image: url("../assets/bgimg.png");
+  /*background-image: url("../assets/bgimg.png");*/
   width: 1000px;
 }
 
@@ -16,7 +16,7 @@
   padding: 20px;
 }
 
-.lec-calendar-page h1 {
+.lec-calendar-content h1 {
   text-align: center;
   color: black; /* Darker text for readability */
 }

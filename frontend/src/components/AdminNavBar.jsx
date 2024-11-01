@@ -65,7 +65,7 @@ const AdminNavBar = () => {
           <li onClick={() => navigate('/reservation-requests')}>Reservation Requests</li>
           <li onClick={() => navigate('/admin-labs')}>Labs</li> {/* Update navigation */}
           <li onClick={() => navigate('/admin-lecture-halls')}>Lecture Halls</li>
-          <li onClick={() => navigate('/lectures')}>Lectures</li>
+          <li onClick={() => navigate('/lectures')}>Lecturers</li>
         </ul>
       </div>
     </>
