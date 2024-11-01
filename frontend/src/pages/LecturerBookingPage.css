@@ -51,19 +51,6 @@
   resize: vertical;
 }
 
-/*.booking-container form button[type="submit"] {
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.booking-container form button[type="submit"]:hover {
-  background-color: #218838;
-}*/
-
 .lecbookingpage-forem-section .request-successful-modal-button:hover {
   background-color: #006699;
 }
@@ -163,3 +150,17 @@ margin-top: 0;
   transition: background-color 0.3s;
   margin-top: 15px;
 }
+
+
+/*.booking-container form button[type="submit"] {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.booking-container form button[type="submit"]:hover {
+  background-color: #218838;
+}*/

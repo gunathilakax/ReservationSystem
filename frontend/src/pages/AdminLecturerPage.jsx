@@ -47,7 +47,7 @@ const AdminLecturerPage = () => {
       <div className="adlec-content">
         <h1>Add Lecturer/Admin</h1>
         <form className="adlec-form" onSubmit={handleSubmit}>
-          <label className="addlec-label">Full Name:
+          <label className="adlec-label">Full Name:
             <input
               type="text"
               name="fullName"
@@ -124,7 +124,7 @@ const AdminLecturerPage = () => {
           <button type="submit" className="adlec-button">Add User</button>
         </form>
         <hr />
-        <h2>Lecturers List</h2>
+        <h1>Lecturers List</h1>
         <LecturerList />  {/* Include the new component here */}
       </div>
     </div>
