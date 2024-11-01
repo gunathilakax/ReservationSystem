@@ -62,7 +62,34 @@ const AdminBooking = () => {
     setError('');
 
     try {
-      await axios.post('http://localhost:5000/api/reservations', { ...formData, setForEveryWeek });
+      const startDate = new Date(formData.date);
+      const endDate = new Date(semester.end.year, new Date(Date.parse(`${semester.end.month} 1`)).getMonth() + 1, 0); // Last day of the end month
+
+      const reservationDates = [];
+
+      if (setForEveryWeek) {
+        // Generate reservations for every week until the end month
+        while (startDate <= endDate) {
+          reservationDates.push({
+            ...formData,
+            date: formatDate(startDate), // Format date for submission
+          });
+          // Move to next week
+          startDate.setDate(startDate.getDate() + 7);
+        }
+      } else {
+        // Just add the single reservation date
+        reservationDates.push({
+          ...formData,
+          date: formatDate(startDate),
+        });
+      }
+
+      // Submit all reservations in one go
+      await Promise.all(reservationDates.map(reservation => 
+        axios.post('http://localhost:5000/api/reservations', reservation)
+      ));
+
       setShowModal(true);
       setFormData({
         fullName: '',
@@ -198,14 +225,16 @@ const AdminBooking = () => {
             </div>
           )}
           <div>
-            <label>
-              <input type="checkbox" checked={setForEveryWeek} onChange={() => setSetForEveryWeek(!setForEveryWeek)} />
-              Set for every week (6 months)
-            </label>
+            <label>Repeat weekly until semester end:</label>
+            <input
+              type="checkbox"
+              checked={setForEveryWeek}
+              onChange={(e) => setSetForEveryWeek(e.target.checked)}
+            />
           </div>
-          <button type="submit">Submit</button>
-          {error && <p className="admin-booking-error">{error}</p>}
+          <button type="submit">Submit Booking</button>
         </form>
+
         {showModal && (
           <div className="admin-booking-modal-overlay">
             <div className="admin-booking-modal-content">
