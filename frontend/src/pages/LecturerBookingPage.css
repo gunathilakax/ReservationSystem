@@ -64,38 +64,6 @@
   background-color: #218838;
 }*/
 
-/* Modal (pop-up) styles */
-.request-successful-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.request-successful-modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.request-successful-modal-button {
-  padding: 10px 20px;
-  background-color: #0099CC;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 15px;
-}
-
 .lecbookingpage-forem-section .request-successful-modal-button:hover {
   background-color: #006699;
 }
@@ -158,4 +126,40 @@ margin-top: 0;
 
 .lecbookingpage-booking-card-actions .cancel-button .cancel-button:hover {
   background-color: #9f1a1a; /* Darker shade on hover */
+}
+
+.lecbookingpage-booking-containor h2 {
+  color: black;
+}
+
+/* Modal (pop-up) styles */
+.request-successful-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.request-successful-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.request-successful-modal-button {
+  padding: 10px 20px;
+  background-color: #0099CC;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 15px;
 }
