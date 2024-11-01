@@ -22,9 +22,23 @@
 }
 
 .lec-calendar-selected-date {
-  text-align: center;
-  margin-top: 100px;
+  text-align: center; 
+  margin-top: 50px;
+  padding: 15px;
   font-size: 1.2em;
+  border-radius: 10px;
+  background-color: #d8d8d8;
+}
+
+.lec-calendar-selected-date h2 {
+  color: black;
+}
+
+.lec-calendar-selected-date p {
+  color: #666;
+  font-size: 14px;
+  margin: 5px 0;
+  text-align: center;
 }
 
 .lec-calendar-reservations-list {
@@ -37,8 +51,8 @@
 .lec-calendar-reservation-card {
   background-color: #ffffff; /* Light blue background for reservation cards */
   border: 1px solid #c6d4e0; /* Light border */
-  border-radius: 5px;
-  padding: 15px;
+  border-radius: 8px;
+  padding: 10px;
   width: 400px;
   transition: box-shadow 0.3s; /* Smooth hover effect */
   margin-left: 50%;
