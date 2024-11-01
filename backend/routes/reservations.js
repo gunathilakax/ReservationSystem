@@ -4,26 +4,55 @@ const Reservation = require('../models/Reservation');
 
 // Route to handle new reservation (POST request)
 router.post('/', async (req, res) => {
-  const { fullName, email, phone, department, numberOfStudents, roomType, room, date, duration, timeSlot, note, username } = req.body;
+  const { fullName, email, phone, department, numberOfStudents, roomType, room, date, duration, timeSlot, note, username, setForEveryWeek } = req.body;
 
   try {
-    const newReservation = new Reservation({
-      fullName,
-      email,
-      phone,
-      department,
-      numberOfStudents,
-      roomType,
-      room,
-      date,
-      duration,
-      timeSlot,
-      note,
-      username,
-    });
+    // Store all the reservations
+    const reservations = [];
+    let startDate = new Date(date);
 
-    await newReservation.save();
-    res.status(201).json(newReservation);
+    if (setForEveryWeek) {
+      // Create reservations for each week for six months (approximately 26 weeks)
+      for (let i = 0; i < 26; i++) {
+        const newReservation = new Reservation({
+          fullName,
+          email,
+          phone,
+          department,
+          numberOfStudents,
+          roomType,
+          room,
+          date: new Date(startDate), // Set date for each reservation
+          duration,
+          timeSlot,
+          note,
+          username,
+        });
+        reservations.push(newReservation);
+        startDate.setDate(startDate.getDate() + 7); // Move to the next week
+      }
+      // Insert all reservations at once
+      await Reservation.insertMany(reservations);
+    } else {
+      // For a single reservation
+      const newReservation = new Reservation({
+        fullName,
+        email,
+        phone,
+        department,
+        numberOfStudents,
+        roomType,
+        room,
+        date,
+        duration,
+        timeSlot,
+        note,
+        username,
+      });
+      await newReservation.save();
+    }
+
+    res.status(201).json({ message: 'Booking created successfully' });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -45,6 +74,7 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 // Route to get reservations by date and optionally by room (GET request)
 router.get('/', async (req, res) => {
   const { date, room } = req.query;
@@ -68,6 +98,5 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
 
 module.exports = router;

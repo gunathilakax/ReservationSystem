@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom'; // Import useLocation
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import AdminNavBar from '../components/AdminNavBar';
 import axios from 'axios';
-import './AdminBooking.css'; // Adjust the CSS file name as needed
+import './AdminBooking.css';
 
 const AdminBooking = () => {
-  const location = useLocation(); // Get the location object
-  const bookingRequest = location.state?.bookingRequest; // Access the booking request from state
+  const location = useLocation();
+  const bookingRequest = location.state?.bookingRequest;
 
-  // Function to format date to 'YYYY-MM-DD'
   const formatDate = (date) => {
     if (!date) return '';
     const d = new Date(date);
-    return d.toISOString().split('T')[0]; // Convert to 'YYYY-MM-DD' format
+    return d.toISOString().split('T')[0];
   };
 
   const [formData, setFormData] = useState({
@@ -24,11 +23,12 @@ const AdminBooking = () => {
     numberOfStudents: bookingRequest ? bookingRequest.numberOfStudents : '',
     roomType: bookingRequest ? bookingRequest.roomType : '',
     room: bookingRequest ? bookingRequest.room : '',
-    date: bookingRequest ? formatDate(bookingRequest.date) : '', // Format the date
+    date: bookingRequest ? formatDate(bookingRequest.date) : '',
     duration: bookingRequest ? bookingRequest.duration : '',
     timeSlot: bookingRequest ? bookingRequest.timeSlot : '',
   });
 
+  const [setForEveryWeek, setSetForEveryWeek] = useState(false);
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
 
@@ -39,7 +39,7 @@ const AdminBooking = () => {
 
   const handleRoomTypeChange = (e) => {
     const { value } = e.target;
-    setFormData({ ...formData, roomType: value, room: '' }); // Reset room selection when roomType changes
+    setFormData({ ...formData, roomType: value, room: '' });
   };
 
   const handleSubmit = async (e) => {
@@ -47,7 +47,7 @@ const AdminBooking = () => {
     setError('');
 
     try {
-      await axios.post('http://localhost:5000/api/reservations', formData);
+      await axios.post('http://localhost:5000/api/reservations', { ...formData, setForEveryWeek });
       setShowModal(true);
       setFormData({
         fullName: '',
@@ -62,6 +62,7 @@ const AdminBooking = () => {
         duration: '',
         timeSlot: '',
       });
+      setSetForEveryWeek(false);
     } catch (error) {
       setError('Failed to submit booking request.');
     }
@@ -77,6 +78,7 @@ const AdminBooking = () => {
       <div className="admin-booking-form-section">
         <h2>Book a Room</h2>
         <form onSubmit={handleSubmit}>
+          {/* Form Fields */}
           <div>
             <label>Full Name:</label>
             <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
@@ -172,6 +174,12 @@ const AdminBooking = () => {
               </select>
             </div>
           )}
+          <div>
+            <label>
+              <input type="checkbox" checked={setForEveryWeek} onChange={() => setSetForEveryWeek(!setForEveryWeek)} />
+              Set for every week (6 months)
+            </label>
+          </div>
           <button type="submit">Submit</button>
           {error && <p className="admin-booking-error">{error}</p>}
         </form>
