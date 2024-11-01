@@ -2,6 +2,7 @@
 import React from 'react';
 import AdminNavBar from '../components/AdminNavBar';
 import NoticeBoard from '../components/NoticeBoard';
+import SemesterConfig from '../components/SemesterConfig';
 import './AdminPage.css';
 
 const AdminPage = () => {
@@ -10,6 +11,7 @@ const AdminPage = () => {
       <AdminNavBar />
       <div className='notice-board-container'></div>
       <NoticeBoard isAdmin={true} />
+      <SemesterConfig />
       <div></div>
     </div>
   );
