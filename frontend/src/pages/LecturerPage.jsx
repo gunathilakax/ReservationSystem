@@ -6,7 +6,7 @@ import './LecturerPage.css';
 
 const LecturerPage = () => {
   return (
-    <div>
+    <div className='lecturer-page'>
       <LecturerNavBar />
       <div className='lec-notice-board-conttainor'>
       <NoticeBoard isAdmin={false} />
