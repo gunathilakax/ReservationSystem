@@ -150,9 +150,38 @@ const LecturerBookingPage = () => {
                   <option value="">Select {formData.roomType}</option>
                   {formData.roomType === 'Lecture Hall' && (
                     <>
-                      <option value="LGF 01">LGF01</option>
-                      <option value="LGF 02">LGF02</option>
-                      <option value="LGF 03">LGF03</option>
+                    <option value="LGF 01">LGF01</option>
+                    <option value="LGF 02">LGF02</option>
+                    <option value="LGF 03">LGF03</option>
+                    <option value="LGF 04">LGF04</option>
+                    <option value="LGF 05">LGF05</option>
+                    <option value="LGF 06">LGF06</option>
+                    <option value="LGF 07">LGF07</option>
+                    <option value="LGF 08">LGF08</option>
+                    <option value="LGF 09">LGF09</option>
+                    <option value="GF 01">GF01</option>
+                    <option value="GF 02">GF02</option>
+                    <option value="GF 03">GF03</option>
+                    <option value="GF 04">GF04</option>
+                    <option value="GF 05">GF05</option>
+                    <option value="GF 06">GF06</option>
+                    <option value="GF 07">GF07</option>
+                    <option value="GF 08">GF08</option>
+                    <option value="GF 09">GF09</option>
+                    <option value="FF 01">FF01</option>
+                    <option value="FF 02">FF02</option>
+                    <option value="FF 03">FF03</option>
+                    <option value="FF 04">FF04</option>
+                    <option value="FF 05">FF05</option>
+                    <option value="FF 06">FF06</option>
+                    <option value="FF 07">FF07</option>
+                    <option value="FF 08">FF08</option>
+                    <option value="FF 09">FF09</option>
+                    <option value="FF 10">FF10</option>
+                    <option value="FF 11">FF11</option>
+                    <option value="FF 12">FF12</option>
+                    <option value="SF 01">SF01</option>
+                    <option value="SF 02">SF02</option>
                     </>
                   )}
                   {formData.roomType === 'Lab' && (
