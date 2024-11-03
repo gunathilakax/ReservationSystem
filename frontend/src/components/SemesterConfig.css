@@ -1,63 +1,78 @@
 .semester-config-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9; /* Light background color */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    font-family: 'Arial', sans-serif; /* Font family */
-  }
-  
-  h2 {
-    text-align: center;
-    color: #333; /* Dark text color */
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column; /* Stack form elements vertically */
-  }
-  
-  label {
-    margin-bottom: 8px;
-    font-weight: bold; /* Bold labels */
-    color: #555; /* Slightly lighter color for labels */
-  }
-  
-  .react-datepicker-wrapper {
-    margin-bottom: 20px; /* Space between date pickers */
-  }
-  
-  .react-datepicker {
-    border: 1px solid #ccc; /* Border for the date picker */
-    border-radius: 4px; /* Rounded corners for the date picker */
-  }
-  
-  .semester-config-container button {
-    padding: 10px;
-    background-color: #0099CC; /* Primary button color */
-    color: white; /* Text color for button */
-    border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* Smooth transition */
-  }
-  
-  .semester-config-container button:hover {
-    background-color: #006699; /* Darker shade on hover */
-  }
-  
-  .semester-config-error {
-    color: #e74c3c; /* Red color for error messages */
-    text-align: center; /* Center error messages */
-    margin-top: 10px;
-  }
-  
-  .semester-config-success {
-    color: #2ecc71; /* Green color for success messages */
-    text-align: center; /* Center success messages */
-    margin-top: 10px;
-  }
-  
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-family: 'Arial', sans-serif; /* Font family */
+}
+
+.semester-config-container h2 {
+  text-align: center;
+  color: #000000; /* Dark text color */
+  margin-bottom: 20px;
+}
+
+.semester-config-container form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+}
+
+.semester-config-container label {
+  margin-bottom: 8px;
+  font-weight: bold; /* Bold labels */
+  color: #555; /* Slightly lighter color for labels */
+}
+
+.react-datepicker-wrapper {
+  margin-bottom: 20px; /* Space between date pickers */
+}
+
+.react-datepicker {
+  border: 1px solid #cccccc; /* Border for the date picker */
+  border-radius: 4px; /* Rounded corners for the date picker */
+}
+
+.semester-config-container button {
+  padding: 10px;
+  color: white; /* Text color for button */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Styling for Save button */
+.semester-config-container button[type="submit"] {
+  background-color: #0099CC; /* Primary button color */
+  margin-bottom: 10px; /* Space between buttons */
+  border-radius: 20px;
+}
+
+.semester-config-container button[type="submit"]:hover {
+  background-color: #006699; /* Darker shade on hover */
+}
+
+/* Styling for Reset button */
+.semester-config-container .reset-button {
+  background-color: #cc0000; /* Distinct color for Reset button */
+  border-radius: 20px;
+}
+
+.semester-config-container .reset-button:hover {
+  background-color: #b71c1c; /* Darker shade on hover for Reset button */
+}
+
+.semester-config-error {
+  color: #e74c3c; /* Red color for error messages */
+  text-align: center; /* Center error messages */
+  margin-top: 10px;
+}
+
+.semester-config-success {
+  color: #2ecc71; /* Green color for success messages */
+  text-align: center; /* Center success messages */
+  margin-top: 10px;
+}

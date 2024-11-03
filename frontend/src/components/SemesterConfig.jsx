@@ -10,6 +10,7 @@ const SemesterConfig = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+  // Function to save semester configuration
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -36,6 +37,21 @@ const SemesterConfig = () => {
       setEndDate(null);
     } catch (error) {
       setError('Failed to save semester configuration.');
+    }
+  };
+
+  // Function to reset semester configuration and delete all reservations
+  const handleReset = async () => {
+    setError('');
+    setSuccess('');
+
+    try {
+      await axios.delete('http://localhost:5000/api/semester/reset');
+      setSuccess('Semester configuration and all reservations deleted successfully!');
+      setStartDate(null);
+      setEndDate(null);
+    } catch (error) {
+      setError('Failed to reset semester configuration and delete reservations.');
     }
   };
 
@@ -66,8 +82,9 @@ const SemesterConfig = () => {
           />
         </div>
         <button type="submit">Save</button>
-        {error && <p className="error">{error}</p>}
-        {success && <p className="success">{success}</p>}
+        <button type="button" onClick={handleReset} className="reset-button">Reset</button>
+        {error && <p className="semester-config-error">{error}</p>}
+        {success && <p className="semester-config-success">{success}</p>}
       </form>
     </div>
   );
