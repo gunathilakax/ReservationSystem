@@ -7,6 +7,14 @@
   justify-content: center;
 }
 
+.lecturer-list input {
+  border-radius: 20px;
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+  width: 70%;
+}
+
 /* Lecturer card styling */
 .lecturer-card {
   background-color: #ffffff;
