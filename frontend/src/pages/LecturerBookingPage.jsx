@@ -102,6 +102,7 @@ const LecturerBookingPage = () => {
   };
 
   return (
+    <div className="full-section">
     <div className="lecbookingpage-booking-containor">
       <LecturerNavBar /><br /><br />
       <div className="lecbookingpage-forem-section">
@@ -235,6 +236,7 @@ const LecturerBookingPage = () => {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 };

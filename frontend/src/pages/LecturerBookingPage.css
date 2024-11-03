@@ -1,32 +1,42 @@
-.lecbookingpage-booking-containor {
-  padding: 20px;
+.full-section{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
-  width: 500px;
-  min-height: 100vh; /* Ensure full height */
-  margin-top: 67px;
+  min-height: 100vh; /* Full height of the viewport */
+  background-image: url("../assets/bgimg.png");
+  background-size: cover;
+  background-position: center; /* Center the background image */
+
+}
+
+.lecbookingpage-booking-containor {
+  flex-direction: column;
+  margin-top: 80px;
   }
 
 .lecbookingpage-forem-section {
-  margin-top: 400px;
-  background-color: white; /* White background for the form */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 20px;
-  max-width: 500px; /* Limit form width */
-  width: 100%; /* Responsive width */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  width: 500px; /* Maximum width of the form */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .lecbookingpage-booking-containor h2 {
-  text-align: center;
+  color: #333333;
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
 .lecbookingpage-booking-containor form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .lecbookingpage-booking-containor form div {

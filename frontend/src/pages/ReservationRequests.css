@@ -1,5 +1,5 @@
 .reservation-requests-container {
-    margin-top: 200px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,9 +13,10 @@
 }
 
 .reservation-requests-container h2 {
-    margin-bottom: 20px;
-    color: black;
     font-size: 2rem;
+    margin-bottom: 20px;
+    color: black; /* Darker text for better contrast */
+    text-align: center; /* Center the heading */
 }
 
 .reservation-requests-error {
@@ -25,11 +26,15 @@
 }
 
 .reservation-requests {
+    margin-top: 50px;
     width: 100%;
     max-width: 800px; /* Limit width */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px; /* Spacing between cards */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for better contrast */
+    border-radius: 10px; /* Rounded corners for the content area */
 }
 
 .reservation-requests-card {
