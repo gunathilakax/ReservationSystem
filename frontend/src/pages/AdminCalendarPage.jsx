@@ -14,7 +14,8 @@ const AdminCalendarPage = () => {
   // Fetch reservations whenever date or selectedRoom changes
   useEffect(() => {
     const fetchReservations = async () => {
-      const formattedDate = date.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+      // Format the date as YYYY-MM-DD in local time
+      const formattedDate = date.toLocaleDateString('en-CA'); // Use 'en-CA' to get YYYY-MM-DD format
       try {
         const response = await axios.get('http://localhost:5000/api/reservations', {
           params: { date: formattedDate, room: selectedRoom },
@@ -41,7 +42,7 @@ const AdminCalendarPage = () => {
       <AdminNavBar />
       <SemesterConfig />
       <div className="admin-calendar-content">
-      <h1>Admin Calendar</h1>
+        <h1>Admin Calendar</h1>
         <CustomCalendar date={date} onDateChange={handleDateChange} />
         <div className="admin-calendar-room-selection">
           <label htmlFor="room">Select Room: </label>
