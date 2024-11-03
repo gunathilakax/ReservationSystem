@@ -38,6 +38,8 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  flex-direction: column;
 }
 
 .lec-lecture-hall-card h3 {
@@ -66,3 +68,18 @@
   margin-bottom: 10px;
 } 
 
+.lec-book-button {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 10px 18px;
+  background-color: #0099CC;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.lec-book-button:hover {
+  background-color: #006699;
+}

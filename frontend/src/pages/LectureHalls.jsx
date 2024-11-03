@@ -1,6 +1,8 @@
 // src/pages/AdminLectureHalls.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import AdminNavBar from '../components/LecturerNavBar'; // Import AdminNavBar
 import './LectureHalls.css'; // Import the CSS file for styling
 import LectureHallImage from '../assets/Lecture_Hall.jpg';
@@ -79,6 +81,7 @@ const hallImageMapping = {
 const AdminLectureHalls = () => {
   const [lectureHalls, setLectureHalls] = useState([]);
   const [activeTab, setActiveTab] = useState('LGF');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLectureHalls = async () => {
@@ -93,12 +96,15 @@ const AdminLectureHalls = () => {
     fetchLectureHalls();
   }, []);
 
+  const handleBookClick = () => {
+    navigate('/Booking'); // Navigate to the LecturerBookingPage
+  };
+
   const renderLectureHalls = () => {
     return lectureHalls
       .filter(hall => hall['Hall No'].startsWith(activeTab))
       .map(hall => {
-        // Check the hall number and assign the corresponding image
-        const hallImage = hallImageMapping[hall['Hall No']] || DefaultImage; // Use default image if no match
+        const hallImage = hallImageMapping[hall['Hall No']] || DefaultImage;
 
         return (
           <div key={hall._id} className="lec-lecture-hall-card">
@@ -111,6 +117,8 @@ const AdminLectureHalls = () => {
             <p>Wall Fans: {hall['Wall Fans']}</p>
             <p>Ceiling Fans: {hall['Celling Fans']}</p>
             <p>Speakers: {hall.Speakers}</p>
+            {/* Add the Book button here */}
+            <button className="lec-book-button" onClick={handleBookClick}>Book</button>
           </div>
         );
       });
@@ -121,30 +129,10 @@ const AdminLectureHalls = () => {
       <AdminNavBar />
       <img src={LectureHallImage} alt="Lecture Hall" className="lec-lecture-hall-image" />
       <div className="lec-tabs">
-        <button
-          className={activeTab === 'LGF' ? 'active' : ''}
-          onClick={() => setActiveTab('LGF')}
-        >
-          LGF
-        </button>
-        <button
-          className={activeTab === 'GF' ? 'active' : ''}
-          onClick={() => setActiveTab('GF')}
-        >
-          GF
-        </button>
-        <button
-          className={activeTab === 'FF' ? 'active' : ''}
-          onClick={() => setActiveTab('FF')}
-        >
-          FF
-        </button>
-        <button
-          className={activeTab === 'SF' ? 'active' : ''}
-          onClick={() => setActiveTab('SF')}
-        >
-          SF
-        </button>
+        <button className={activeTab === 'LGF' ? 'active' : ''} onClick={() => setActiveTab('LGF')}>LGF</button>
+        <button className={activeTab === 'GF' ? 'active' : ''} onClick={() => setActiveTab('GF')}>GF</button>
+        <button className={activeTab === 'FF' ? 'active' : ''} onClick={() => setActiveTab('FF')}>FF</button>
+        <button className={activeTab === 'SF' ? 'active' : ''} onClick={() => setActiveTab('SF')}>SF</button>
       </div>
       <div className="lec-lecture-halls-grid">
         {renderLectureHalls()}
