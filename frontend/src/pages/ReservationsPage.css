@@ -65,3 +65,44 @@
 .past p {
   color: #555; /* Subtle color for text inside past reservations */
 }
+
+.filters {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px; /* Add space between the dropdowns */
+}
+
+.weekday-selector,
+.room-type-selector {
+  display: flex;
+  align-items: center;
+}
+
+.weekday-selector label,
+.room-type-selector label {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  color: #333; /* Label color */
+}
+
+.weekday-selector select,
+.room-type-selector select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Background color for the dropdown */
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.weekday-selector select:focus,
+.room-type-selector select:focus {
+  border-color: #007bff; /* Border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.weekday-selector select:hover,
+.room-type-selector select:hover {
+  border-color: #007bff; /* Border color on hover */
+}

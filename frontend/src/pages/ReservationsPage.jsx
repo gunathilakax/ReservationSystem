@@ -6,6 +6,8 @@ import './ReservationsPage.css';
 const ReservationsPage = () => {
   const [reservations, setReservations] = useState([]);
   const [username, setUsername] = useState(sessionStorage.getItem('username'));
+  const [selectedWeekday, setSelectedWeekday] = useState('All');
+  const [selectedRoomType, setSelectedRoomType] = useState('All');
 
   useEffect(() => {
     const fetchReservations = async () => {
@@ -27,16 +29,64 @@ const ReservationsPage = () => {
 
   const isPastReservation = (date) => new Date(date) < new Date();
 
+  const handleWeekdayChange = (event) => {
+    setSelectedWeekday(event.target.value);
+  };
+
+  const handleRoomTypeChange = (event) => {
+    setSelectedRoomType(event.target.value);
+  };
+
+  // Define available weekdays and room types
+  const weekdays = ['All', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const roomTypes = ['All', 'Lecture Hall', 'Lab', 'Seminar Room'];
+
+  // Filter reservations based on selected weekday and room type
+  const filteredReservations = reservations.filter(reservation => {
+    const reservationDate = new Date(reservation.date);
+    const reservationWeekday = reservationDate.toLocaleString('default', { weekday: 'long' });
+
+    const matchesWeekday = selectedWeekday === 'All' || reservationWeekday === selectedWeekday;
+    const matchesRoomType = selectedRoomType === 'All' || reservation.roomType === selectedRoomType;
+
+    return matchesWeekday && matchesRoomType;
+  });
+
   return (
     <div className="my-reservations-page">
       <LecturerNavBar />
       <div className="my-reservation-content">
         <h2>My Reservations</h2>
+
+        <div className="filters">
+          <div className="weekday-selector">
+            <label htmlFor="weekday">Select Weekday: </label>
+            <select id="weekday" value={selectedWeekday} onChange={handleWeekdayChange}>
+              {weekdays.map((weekday) => (
+                <option key={weekday} value={weekday}>
+                  {weekday}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="room-type-selector">
+            <label htmlFor="roomType">Select Room Type: </label>
+            <select id="roomType" value={selectedRoomType} onChange={handleRoomTypeChange}>
+              {roomTypes.map((roomType) => (
+                <option key={roomType} value={roomType}>
+                  {roomType}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div className="my-reservations-list">
-          {reservations.length === 0 ? (
-            <p>No reservations found.</p>
+          {filteredReservations.length === 0 ? (
+            <p>No reservations found for the selected filters.</p>
           ) : (
-            reservations.map((reservation) => (
+            filteredReservations.map((reservation) => (
               <div
                 className={`my-reservation-card ${isPastReservation(reservation.date) ? 'past' : ''}`}
                 key={reservation._id}
