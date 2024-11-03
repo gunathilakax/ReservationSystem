@@ -60,17 +60,102 @@
 /* ProfilePage.css */
 .profile-logout-button {
     padding: 10px 15px;
-    background-color: #cc0000; /* Red background for logout */
+    background-color: #b71c1c; /* Red background for logout */
     color: white;
     border: none;
-    border-radius: 20px;
     cursor: pointer;
     margin-top: 20px; /* Space from profile info section */
     font-size: 16px;
+    border-radius: 20px;
   }
   
   .profile-logout-button:hover {
-    background-color: #b71c1c; /* Darker red on hover */
+    background-color: #9f1a1a; /* Darker red on hover */
+  }
+  
+  .change-password-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    background-color: #0099CC;
+    color: white;
+  }
+
+  .change-password-button:hover {
+    background-color: #006699;
+  }
+  
+  .password-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .password-modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .password-modal-content label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+  
+  .password-modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+  }
+  
+  .submit-password-button, .close-password-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .submit-password-button {
+    border-radius: 20px;
+    margin: 0 15px;
+    background-color: #0099CC; /* Green background */
+    color: white;
+  }
+
+  .submit-password-button:hover {
+    background-color: #006699; /* Green background */
+  }
+  
+  .close-password-button {
+    border-radius: 20px;
+    background-color: #6c757d; /* Red background */
+    color: white;
+  }
+
+  .close-password-button:hover {
+    background-color: #7f8890; /* Red background */
   }
   
 

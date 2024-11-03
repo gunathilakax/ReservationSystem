@@ -149,3 +149,7 @@
   color: #fff;
   margin-left: 10px;
 }
+
+.modal-content button[type="button"]:hover {
+  background-color: #7f8890;
+}

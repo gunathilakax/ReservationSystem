@@ -80,4 +80,30 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Route to change user password
+router.put('/:username/change-password', async (req, res) => {
+  const { currentPassword, newPassword } = req.body;
+  
+  try {
+    const user = await User.findOne({ username: req.params.username });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Check if the current password matches
+    if (user.password !== currentPassword) {
+      return res.status(400).json({ error: 'Current password is incorrect' });
+    }
+
+    // Update to new password
+    user.password = newPassword;
+    await user.save();
+
+    res.status(200).json({ message: 'Password updated successfully' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
 module.exports = router;
