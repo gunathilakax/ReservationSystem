@@ -4,6 +4,7 @@ import './AdminCalendarPage.css';
 import AdminNavBar from '../components/AdminNavBar';
 import axios from 'axios';
 import CustomCalendar from '../components/CustomCalendar';
+import SemesterConfig from '../components/SemesterConfig';
 
 const AdminCalendarPage = () => {
   const [date, setDate] = useState(new Date());
@@ -38,7 +39,7 @@ const AdminCalendarPage = () => {
   return (
     <div className="admin-calendar-page">
       <AdminNavBar />
-      
+      <SemesterConfig />
       <div className="admin-calendar-content">
       <h1>Admin Calendar</h1>
         <CustomCalendar date={date} onDateChange={handleDateChange} />

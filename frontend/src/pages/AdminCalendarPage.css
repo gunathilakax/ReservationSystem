@@ -3,7 +3,7 @@
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
   min-height: 100vh; /* Full height of the viewport */
-  padding: 50px;
+  padding: 20px;
   margin-top: 50px;
   background-image: url("../assets/bgimg.png");
   background-size: cover; /* Ensure the background image covers the area */
@@ -11,7 +11,7 @@
 
 .admin-calendar-content {
   width: 800px; /* Limit max width */
-  margin: 0 auto; /* Center the content */
+  margin: 20px auto; /* Center the content */
   background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for better contrast */
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */

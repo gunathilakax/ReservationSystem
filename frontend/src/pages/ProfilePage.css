@@ -16,7 +16,7 @@
     flex-direction: column;     /* Align items in a column */
     align-items: center;
     width: 600px;
-    margin: 100px auto;
+    margin: 50px auto;
     padding: 50px;
     background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for better contrast */
     border-radius: 8px;
