@@ -96,8 +96,14 @@ const AdminLectureHalls = () => {
     fetchLectureHalls();
   }, []);
 
-  const handleBookClick = () => {
-    navigate('/Booking'); // Navigate to the LecturerBookingPage
+  const handleBookClick = (hallName) => {
+    console.log(hallName )
+    navigate('/Booking', {
+      state: {
+        roomType: 'Lecture Hall',
+        room: hallName,
+      },
+    });
   };
 
   const renderLectureHalls = () => {
@@ -118,7 +124,7 @@ const AdminLectureHalls = () => {
             <p>Ceiling Fans: {hall['Celling Fans']}</p>
             <p>Speakers: {hall.Speakers}</p>
             {/* Add the Book button here */}
-            <button className="lec-book-button" onClick={handleBookClick}>Book</button>
+            <button className='lec-book-button' onClick={() => handleBookClick(hall['Hall No'])}>Book</button>
           </div>
         );
       });
