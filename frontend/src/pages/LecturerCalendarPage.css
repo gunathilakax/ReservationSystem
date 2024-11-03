@@ -1,11 +1,11 @@
 /* src/pages/LecturerCalendarPage.css */
 
 .lec-calendar-page {
-  display: flex; /* Use flexbox for alignment */
+  /*display: flex; /* Use flexbox for alignment */
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
   min-height: 100vh; /* Full height of the viewport */
-  padding: 20px;
+  padding: 50px;
   margin-top: 50px;
   background-image: url("../assets/bgimg.png");
   background-size: cover; /* Ensure the background image covers the area */
