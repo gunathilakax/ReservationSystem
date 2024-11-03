@@ -12,7 +12,9 @@ const CalendarPage = () => {
 
   const handleDateChange = async (newDate) => {
     setDate(newDate);
-    const formattedDate = newDate.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+
+    // Format the date as YYYY-MM-DD in local time
+    const formattedDate = newDate.toLocaleDateString('en-CA'); // Use 'en-CA' to get YYYY-MM-DD format
 
     // Fetch reservations for the selected date
     try {
@@ -30,7 +32,7 @@ const CalendarPage = () => {
       <LecturerNavBar />
       
       <div className="lec-calendar-content">
-      <h1>Calendar</h1>
+        <h1>Calendar</h1>
         <CustomCalendar date={date} onDateChange={handleDateChange} />
         <div className="lec-calendar-selected-date">
           <h2>Selected Date: {date.toLocaleDateString()}</h2>
