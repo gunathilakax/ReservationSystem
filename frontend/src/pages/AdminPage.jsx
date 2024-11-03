@@ -10,8 +10,8 @@ const AdminPage = () => {
     <div>
       <AdminNavBar />
       <div className='admin-notice-board-container'>
-      <NoticeBoard isAdmin={true} />
       <SemesterConfig />
+      <NoticeBoard isAdmin={true} />
       </div>
     </div>
   );
