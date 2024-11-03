@@ -1,16 +1,17 @@
 /* ProfilePage.css */
-body {
+/*body {
     background-color: #f4f4f4;
     font-family: 'Arial', sans-serif;
-}
+}*/
 
 .profile-container {
     display: flex;              /* Enable flexbox */
     flex-direction: column;     /* Align items in a column */
     align-items: center;
     width: 600px;
-    margin: 20px auto;
+    margin: 100px auto;
     padding: 50px;
+    
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);

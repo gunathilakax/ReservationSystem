@@ -34,6 +34,7 @@ const LoginPage = () => {
   };
 
   return (
+    <div className="login-body">
     <div className="login-container">
       <UniNavBar />
       <div className="login-header">
@@ -70,11 +71,9 @@ const LoginPage = () => {
         <button type="submit" className="login-button">LOG IN</button>
         <div className="extra-info">
           <a href="#">Forgotten your username or password?</a>
-          {/*<p>Cookies must be enabled in your browser</p>
-          <p>Some courses may allow guest access</p>
-          <button className="guest-button">LOG IN AS A GUEST</button>*/}
         </div>
       </form>
+    </div>
     </div>
   );
 };
