@@ -6,6 +6,11 @@ import './AdminLectureHalls.css';
 import LectureHallImage from '../assets/Lecture_Hall.jpg';
 import DefaultImage from '../assets/lecture-halls/default.png'; // Default image
 
+// Import images for the slideshow
+import SlideImage1 from '../assets/lecture-halls-slide-show/slideshow1.jpg';
+import SlideImage2 from '../assets/lecture-halls-slide-show/slideshow2.jpg';
+import SlideImage3 from '../assets/lecture-halls-slide-show/slideshow3.jpg';
+
 // Import specific images for each hall
 import LGF01Image from '../assets/lecture-halls/LGF_01.jpg';
 import LGF02Image from '../assets/lecture-halls/LGF_02.jpg';
@@ -44,6 +49,10 @@ import SF02Image from '../assets/lecture-halls/SF_02.jpg';
 const AdminLectureHalls = () => {
   const [lectureHalls, setLectureHalls] = useState([]);
   const [activeTab, setActiveTab] = useState('LGF');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    // Image array for slideshow
+  const hallSlideImages = [SlideImage1, SlideImage2, SlideImage3];
 
   useEffect(() => {
     const fetchLectureHalls = async () => {
@@ -56,6 +65,13 @@ const AdminLectureHalls = () => {
     };
 
     fetchLectureHalls();
+
+    // Slideshow logic
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % hallSlideImages.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(intervalId); // Clear interval on unmount
   }, []);
 
   // Hall images mapping
@@ -118,7 +134,19 @@ const AdminLectureHalls = () => {
   return (
     <div className="admin-lecture-halls-container">
       <AdminNavBar />
-      <img src={LectureHallImage} alt="Lecture Hall" className="admin-lecture-hall-image" />
+      <div className="admin-lec-hall-slideshow">
+        <div
+          className="admin-lec-hall-images"
+          style={{
+            transform: `translateX(-${currentImageIndex * 100}%)`,
+            transition: 'transform 1s ease',
+          }}
+        >
+          {hallSlideImages.map((image, index) => (
+            <img key={index} src={image} alt={`Slide ${index + 1}`} className="admin-lec-hall-image" />
+          ))}
+        </div>
+      </div>
       <div className="admin-tabs">
         <button
           className={activeTab === 'LGF' ? 'active' : ''}
