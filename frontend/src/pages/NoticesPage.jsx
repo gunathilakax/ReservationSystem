@@ -1,60 +1,69 @@
+import { useLocation } from 'react-router-dom'; // Add this import
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import AdminNavBar from '../components/AdminNavBar';
+import LecturerNavBar from '../components/LecturerNavBar';
 import axios from 'axios';
-import './AdminBooking.css';
+import './LecturerBookingPage.css';
 
-const AdminBooking = () => {
-  const location = useLocation();
-  const bookingRequest = location.state?.bookingRequest;
-
-  const formatDate = (date) => {
-    if (!date) return '';
-    const d = new Date(date);
-    return d.toISOString().split('T')[0];
-  };
+const LecturerBookingPage = () => {
+  const location = useLocation(); // Get the location object
+  const { state } = location; // Extract state from location
+  const initialRoomType = state?.roomType || '';
+  const initialRoom = state?.room || '';
 
   const [formData, setFormData] = useState({
-    fullName: bookingRequest ? bookingRequest.fullName : '',
-    username: bookingRequest ? bookingRequest.username : '',
-    email: bookingRequest ? bookingRequest.email : '',
-    phone: bookingRequest ? bookingRequest.phone : '',
-    department: bookingRequest ? bookingRequest.department : '',
-    numberOfStudents: bookingRequest ? bookingRequest.numberOfStudents : '',
-    roomType: bookingRequest ? bookingRequest.roomType : '',
-    room: bookingRequest ? bookingRequest.room : '',
-    date: bookingRequest ? formatDate(bookingRequest.date) : '',
-    duration: bookingRequest ? bookingRequest.duration : '',
-    timeSlot: bookingRequest ? bookingRequest.timeSlot : '',
+    fullName: '',
+    email: '',
+    phone: '',
+    department: '',
+    numberOfStudents: '',
+    roomType: initialRoomType, // Set initial room type from props
+    room: initialRoom, // Set initial room from props
+    date: '',
+    duration: '',
+    timeSlot: '',
+    note: '',
   });
 
-  const [setForEveryWeek, setSetForEveryWeek] = useState(false);
+  const [bookingRequests, setBookingRequests] = useState([]);
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const [semester, setSemester] = useState({ start: {}, end: {} }); // State to hold semester data
+  const username = sessionStorage.getItem('username');
 
-  // Fetch semester configuration
   useEffect(() => {
-    const fetchSemester = async () => {
+    const fetchLecturerData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/semester'); // Adjust the URL as necessary
-        setSemester(response.data);
+        const response = await axios.get(`http://localhost:5000/api/users/${username}`);
+        setFormData({
+          ...formData,
+          fullName: response.data.fullName,
+          email: response.data.email,
+          phone: response.data.phone,
+          department: response.data.department,
+        });
       } catch (error) {
-        console.error('Failed to fetch semester configuration:', error);
+        console.error('Error fetching lecturer data:', error);
       }
     };
 
-    fetchSemester();
-  }, []);
+    fetchLecturerData();
+  }, [username]);
+
+  useEffect(() => {
+    const fetchBookingRequests = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/bookingrequests?username=${username}`);
+        setBookingRequests(response.data);
+      } catch (error) {
+        console.error('Error fetching booking requests:', error);
+      }
+    };
+
+    fetchBookingRequests();
+  }, [username]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  };
-
-  const handleRoomTypeChange = (e) => {
-    const { value } = e.target;
-    setFormData({ ...formData, roomType: value, room: '' });
   };
 
   const handleSubmit = async (e) => {
@@ -62,22 +71,23 @@ const AdminBooking = () => {
     setError('');
 
     try {
-      await axios.post('http://localhost:5000/api/reservations', { ...formData, setForEveryWeek });
+      await axios.post('http://localhost:5000/api/bookingrequests', {
+        ...formData,
+        username
+      });
       setShowModal(true);
       setFormData({
-        fullName: '',
-        username: '',
-        email: '',
-        phone: '',
-        department: '',
+        ...formData,
         numberOfStudents: '',
         roomType: '',
         room: '',
         date: '',
         duration: '',
         timeSlot: '',
+        note: '',
       });
-      setSetForEveryWeek(false);
+      const response = await axios.get(`http://localhost:5000/api/bookingrequests?username=${username}`);
+      setBookingRequests(response.data);
     } catch (error) {
       setError('Failed to submit booking request.');
     }
@@ -87,76 +97,75 @@ const AdminBooking = () => {
     setShowModal(false);
   };
 
-  return (
-    <div className="admin-booking-container">
-      <AdminNavBar />
-      <div className="admin-booking-form-section">
-        <h2>Book a Room</h2>
-        
-        {/* Display semester information */}
-        <div className="semester-info">
-          <h3>Current Semester:</h3>
-          <p>Start: {semester.start.month} {semester.start.year}</p>
-          <p>End: {semester.end.month} {semester.end.year}</p>
-        </div>
+  // New function to handle booking request cancellation
+  const handleCancelRequest = async (requestId) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/bookingrequests/${requestId}`);
+      setBookingRequests(bookingRequests.filter((request) => request._id !== requestId));
+    } catch (error) {
+      console.error('Failed to cancel booking request:', error);
+    }
+  };
 
-        <form onSubmit={handleSubmit}>
-          {/* Form Fields */}
+
+  return (
+    <div className="full-section">
+      <div className="lecbookingpage-booking-containor">
+        <LecturerNavBar /><br /><br />
+        <div className="lecbookingpage-forem-section">
+          <h2>Book a Room</h2>
+          <form onSubmit={handleSubmit}>
           <div>
             <label>Full Name:</label>
-            <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
-          </div>
-          <div>
-            <label>Username:</label>
-            <input type="text" name="username" value={formData.username} onChange={handleChange} required />
+            <input type="text" name="fullName" value={formData.fullName} readOnly />
           </div>
           <div>
             <label>Email:</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+            <input type="email" name="email" value={formData.email} readOnly />
           </div>
           <div>
             <label>Phone:</label>
-            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
+            <input type="tel" name="phone" value={formData.phone} readOnly />
           </div>
           <div>
             <label>Department:</label>
-            <input type="text" name="department" value={formData.department} onChange={handleChange} required />
+            <input type="text" name="department" value={formData.department} readOnly />
           </div>
           <div>
             <label>Number of Students:</label>
             <input type="number" name="numberOfStudents" value={formData.numberOfStudents} onChange={handleChange} required />
           </div>
-          <div>
-            <label>Lecture Hall or Lab:</label>
-            <select name="roomType" value={formData.roomType} onChange={handleRoomTypeChange} required>
-              <option value="">Select Type</option>
-              <option value="Lecture Hall">Lecture Hall</option>
-              <option value="Lab">Lab</option>
-            </select>
-          </div>
-          {formData.roomType && (
             <div>
-              <label>{formData.roomType}:</label>
-              <select name="room" value={formData.room} onChange={handleChange} required>
-                <option value="">Select {formData.roomType}</option>
-                {formData.roomType === 'Lecture Hall' && (
-                  <>
-                    <option value="FF01">FF01</option>
-                    <option value="FF02">FF02</option>
-                    <option value="FF03">FF03</option>
-                  </>
-                )}
-                {formData.roomType === 'Lab' && (
-                  <>
-                    <option value="ICT Common Lab 1">ICT Common Lab 1</option>
-                    <option value="ICT Common Lab 2">ICT Common Lab 2</option>
-                    <option value="Multimedia Lab">Multimedia Lab</option>
-                  </>
-                )}
+              <label>Lecture Hall or Lab:</label>
+              <select name="roomType" value={formData.roomType} onChange={handleChange} required>
+                <option value="">Select Type</option>
+                <option value="Lecture Hall">Lecture Hall</option>
+                <option value="Lab">Lab</option>
               </select>
             </div>
-          )}
-          <div>
+            {formData.roomType && (
+              <div>
+                <label>{formData.roomType}:</label>
+                <select name="room" value={formData.room} onChange={handleChange} required>
+                  <option value="">Select {formData.roomType}</option>
+                  {formData.roomType === 'Lecture Hall' && (
+                    <>
+                      <option value="FF01">FF01</option>
+                      <option value="FF02">FF02</option>
+                      <option value="FF03">FF03</option>
+                    </>
+                  )}
+                  {formData.roomType === 'Lab' && (
+                    <>
+                      <option value="ICT Common Lab 1">ICT Common Lab 1</option>
+                      <option value="ICT Common Lab 2">ICT Common Lab 2</option>
+                      <option value="Multimedia Lab">Multimedia Lab</option>
+                    </>
+                  )}
+                </select>
+              </div>
+            )}
+            <div>
             <label>Date:</label>
             <input type="date" name="date" value={formData.date} onChange={handleChange} required />
           </div>
@@ -198,25 +207,45 @@ const AdminBooking = () => {
             </div>
           )}
           <div>
-            <label>
-              <input type="checkbox" checked={setForEveryWeek} onChange={() => setSetForEveryWeek(!setForEveryWeek)} />
-              Set for every week (6 months)
-            </label>
+            <label>Note:</label>
+            <textarea name="note" value={formData.note} onChange={handleChange} />
           </div>
           <button type="submit">Submit</button>
-          {error && <p className="admin-booking-error">{error}</p>}
-        </form>
-        {showModal && (
-          <div className="admin-booking-modal-overlay">
-            <div className="admin-booking-modal-content">
-              <p>Booking completed successfully.</p>
-              <button className="admin-booking-modal-button" onClick={handleCloseModal}>OK</button>
+          {error && <p className="error">{error}</p>}
+          </form>
+          {showModal && (
+          <div className="request-successful-modal-overlay">
+            <div className="request-successful-modal-content">
+              <p>Booking request submitted successfully.</p>
+              <button className="request-successful-modal-button" onClick={handleCloseModal}>OK</button>
             </div>
           </div>
         )}
+      </div>
+      <div className="lecbookingpage-requests-section">
+        <h2>Your Booking Requests</h2>
+        <div className="lecbookingpage-booking-requests">
+          {bookingRequests.length > 0 ? (
+            bookingRequests.map((request) => (
+              <div className="lecbookingpage-lecturer-booking-card" key={request._id}>
+                <h3>Booking Request</h3>
+                <p><strong>Date:</strong> {new Date(request.date).toLocaleDateString()}</p>
+                <p><strong>Time Slot:</strong> {request.timeSlot}</p>
+                <p><strong>Room Type:</strong> {request.roomType}</p>
+                <p><strong>Room:</strong> {request.room}</p>
+                <div className="lecbookingpage-booking-card-actions">
+                  <button onClick={() => handleCancelRequest(request._id)} className="cancel-button">Cancel</button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No booking requests found.</p>
+          )}
+        </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default AdminBooking;
+export default LecturerBookingPage;

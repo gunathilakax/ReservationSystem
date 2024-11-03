@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import LecturerNavBar from '../components/LecturerNavBar';
 import './Labs.css';
@@ -6,6 +7,7 @@ import LabImage from '../assets/Lab.jpg';
 
 const Labs = () => {
   const [labs, setLabs] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLabs = async () => {
@@ -20,6 +22,16 @@ const Labs = () => {
     fetchLabs();
   }, []);
 
+  const handleBookLab = (hallName) => {
+    console.log(hallName )
+    navigate('/Booking', {
+      state: {
+        roomType: 'Lab',
+        room: hallName,
+      },
+    });
+  };
+
   return (
     <div className="lec-labs-container">
       <LecturerNavBar />
@@ -30,6 +42,7 @@ const Labs = () => {
             <h3>{lab.LabName}</h3>
             <p>Department: {lab.Department}</p>
             <p>Capacity: {lab.Capacity}</p>
+            <button className='lec-lab-book-button' onClick={() => handleBookLab(lab.LabName)}>Book</button>
           </div>
         ))}
       </div>
