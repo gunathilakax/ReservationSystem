@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './NavBar.css'; // Use the same CSS for consistency
 import { useNavigate } from 'react-router-dom';
-import ProfileImage from '../assets/ProfileImage.png';
+import ProfileImage from '../assets/Profile.png';
 
 const LecturerNavBar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

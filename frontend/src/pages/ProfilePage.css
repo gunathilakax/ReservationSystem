@@ -4,6 +4,13 @@
     font-family: 'Arial', sans-serif;
 }*/
 
+.profile-page {
+    margin-top: 20px;
+    padding: 20px;
+    background-image: url("../assets/bgimg.png");
+    background-size: cover; /* Ensure the background image covers the area */
+}
+
 .profile-container {
     display: flex;              /* Enable flexbox */
     flex-direction: column;     /* Align items in a column */
@@ -11,8 +18,7 @@
     width: 600px;
     margin: 100px auto;
     padding: 50px;
-    
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for better contrast */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
@@ -27,7 +33,7 @@
     display: flex;              /* Enable flexbox */
     flex-direction: column;     /* Align items in a column */
     align-items: center;
-    background-color: rgb(224, 224, 224);
+    background-color: #fff;
     width: 500px;
     margin: 10px auto;
     padding: 40px; 

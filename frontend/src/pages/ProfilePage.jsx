@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import LecturerNavBar from '../components/LecturerNavBar';
 import axios from 'axios';
 import './ProfilePage.css';
-import ProfileImage from '../assets/Profile.jpg';
+import ProfileImage from '../assets/Profile.png';
 
 const ProfilePage = () => {
   const [lecturer, setLecturer] = useState(null);
@@ -34,7 +34,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <div>
+    <div className="profile-page">
       <LecturerNavBar /><br /><br />
       <div className="profile-container">
         <img src={ProfileImage} alt="Profile" className="profile-image" />
