@@ -83,3 +83,22 @@
 .lec-book-button:hover {
   background-color: #006699;
 }
+
+.lec-hall-slideshow {
+  position: relative;
+  width: 100%;
+  height: calc(90vh - 150px);
+  overflow: hidden;
+}
+
+.lec-hall-images {
+  display: flex;
+  transition: transform 1s ease; /* Smooth sliding transition */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.lec-hall-image {
+  min-width: 100%; /* Ensure each image takes the full width of the slideshow */
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
+}

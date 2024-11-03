@@ -3,11 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import LecturerNavBar from '../components/LecturerNavBar';
 import './Labs.css';
-import LabImage from '../assets/Lab.jpg';
+import LabImage1 from '../assets/labs-slide-show/Lab1.jpg';
+import LabImage2 from '../assets/labs-slide-show/Lab2.jpg';
+import LabImage3 from '../assets/labs-slide-show/Lab3.jpg';
 
 const Labs = () => {
   const [labs, setLabs] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
+
+  // Image array for slideshow
+  const labImages = [LabImage1, LabImage2, LabImage3];
 
   useEffect(() => {
     const fetchLabs = async () => {
@@ -20,10 +26,17 @@ const Labs = () => {
     };
 
     fetchLabs();
+
+    // Slideshow logic
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % labImages.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(intervalId); // Clear interval on unmount
   }, []);
 
   const handleBookLab = (hallName) => {
-    console.log(hallName )
+    console.log(hallName);
     navigate('/Booking', {
       state: {
         roomType: 'Lab',
@@ -35,7 +48,16 @@ const Labs = () => {
   return (
     <div className="lec-labs-container">
       <LecturerNavBar />
-      <img src={LabImage} alt="Lab" className="lec-lab-image" />
+      <div className="lec-lab-slideshow">
+        <div
+          className="lec-lab-images"
+          style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+        >
+          {labImages.map((image, index) => (
+            <img key={index} src={image} alt={`Lab ${index + 1}`} className="lec-lab-image" />
+          ))}
+        </div>
+      </div>
       <div className="lec-labs-grid">
         {labs.map((lab) => (
           <div key={lab._id} className="lec-lab-card">
