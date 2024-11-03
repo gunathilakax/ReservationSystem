@@ -1,15 +1,15 @@
-
 .reservation-requests-container {
     margin-top: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
+    justify-content: center; /* Center content vertically */
     padding: 20px;
     min-height: 100vh; /* Ensure full height */
-    /*border-radius: 10px*/;
     background-image: url("../assets/bgimg.png");
     background-size: cover;
-    width: 1000px;
+    width: 100%; /* Set to 100% for better responsiveness */
 }
 
 .reservation-requests-container h2 {
@@ -45,7 +45,6 @@
 .reservation-requests-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    /*border: 1px solid #007bff; */
 }
 
 .reservation-requests-card h3 {
