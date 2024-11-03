@@ -1,6 +1,6 @@
 .admin-notice-board-container{
-    margin-top: 80px;
-    width: 1000px;
-    position: static;
+    margin-top: 50px;
+    padding-top: 50px;
     background-image: url("../assets/bgimg.png");
+    background-size: cover; /* Ensure the background image covers the area */
 }
