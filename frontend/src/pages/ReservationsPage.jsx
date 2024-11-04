@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LecturerNavBar from '../components/LecturerNavBar'; // Adjust the path as needed
+import Footer from '../components/Footer';
 import axios from 'axios';
 import './ReservationsPage.css';
 
@@ -54,6 +55,7 @@ const ReservationsPage = () => {
 
   return (
     <div className="my-reservations-page">
+      <div className="my-reservation-page-content">
       <LecturerNavBar />
       <div className="my-reservation-content">
         <h2>My Reservations</h2>
@@ -99,6 +101,8 @@ const ReservationsPage = () => {
           )}
         </div>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };

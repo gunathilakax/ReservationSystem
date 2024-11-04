@@ -7,6 +7,7 @@ import InstaImage from '../assets/instagram-image.png';
 const Footer = () => {
   return (
     <footer className="footer">
+      <div className="footer-content">
       <div className="footer-section-1">
         <h5 className="footer-heading">INFO</h5>
         <ul className="footer-list">
@@ -27,6 +28,7 @@ const Footer = () => {
         <h3 className="footer-heading">GET SOCIAL</h3>
         <a href="https://facebook.com" className="footer-icon"><img src={FBImage} alt="Facebook" className="social-icon" /></a>
         <a href="https://facebook.com" className="footer-icon"><img src={InstaImage} alt="Instagram" className="insta-icon" /></a>
+      </div>
       </div>
     </footer>
   );
