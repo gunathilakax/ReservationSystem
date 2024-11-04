@@ -57,6 +57,22 @@ const AdminBooking = () => {
     setFormData({ ...formData, roomType: value, room: '' });
   };
 
+  const checkExistingReservations = async (reservation) => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/reservations', {
+        params: {
+          room: reservation.room,
+          date: reservation.date,
+          timeSlot: reservation.timeSlot,
+        },
+      });
+      return response.data.length > 0; // Returns true if there are existing reservations
+    } catch (error) {
+      console.error('Error checking existing reservations:', error);
+      return false; // Return false if there's an error, allowing the booking to proceed
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -83,6 +99,14 @@ const AdminBooking = () => {
           ...formData,
           date: formatDate(startDate),
         });
+      }
+
+      // Check for existing reservations before submitting
+      const conflictingReservations = await Promise.all(reservationDates.map(checkExistingReservations));
+
+      if (conflictingReservations.some((conflict) => conflict)) {
+        setError('Already Booked for the selected date and time slot.');
+        return;
       }
 
       // Submit all reservations in one go
@@ -261,6 +285,7 @@ const AdminBooking = () => {
               onChange={(e) => setSetForEveryWeek(e.target.checked)}
             />
           </div>
+          {error && <p className="error-message">{error}</p>}
           <button type="submit">Submit Booking</button>
         </form>
 
