@@ -9,16 +9,16 @@
 
 .admin-booking-background {
   margin-top: 80px;
-  padding: 40px; /* Add padding */
+  padding: 40px; 
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Full height of the viewport */
-  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for better contrast */
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   width: 100%;
-  width: 700px; /* Maximum width of the form */
-  background-position: center; /* Center the background image */
+  width: 700px; 
+  background-position: center; 
 }
 
 .admin-booking-form-section {
@@ -27,7 +27,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 30px;
   width: 100%;
-  width: 500px; /* Maximum width of the form */
+  width: 500px; 
   display: flex;
   flex-direction: column;
   align-items: center;

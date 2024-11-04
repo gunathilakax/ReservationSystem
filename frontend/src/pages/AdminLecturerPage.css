@@ -2,13 +2,13 @@
 
 .admin-lecturer-page {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center; 
+  align-items: center;
   flex-direction: column;
   padding: 20px;
-  min-height: 100vh; /* Ensure full height */
-  margin-top: 50px; /* Remove top margin to use full height */
-  background-color: #f4f4f4; /* Optional: Light background for better contrast */
+  min-height: 100vh; 
+  margin-top: 50px; 
+  background-color: #f4f4f4; 
 }
 
 .adlec-content {
