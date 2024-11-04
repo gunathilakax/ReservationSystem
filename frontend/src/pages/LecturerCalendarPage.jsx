@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './LecturerCalendarPage.css';
 import LecturerNavBar from '../components/LecturerNavBar';
+import Footer from '../components/Footer';
 import axios from 'axios';
 import CustomCalendar from '../components/CustomCalendar';
 
@@ -29,6 +30,7 @@ const CalendarPage = () => {
 
   return (
     <div className="lec-calendar-page">
+      <div className="lec-calendar-page-content">
       <LecturerNavBar />
       
       <div className="lec-calendar-content">
@@ -52,6 +54,8 @@ const CalendarPage = () => {
           )}
         </div>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };
