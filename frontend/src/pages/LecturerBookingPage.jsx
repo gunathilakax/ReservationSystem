@@ -186,9 +186,34 @@ const LecturerBookingPage = () => {
                   )}
                   {formData.roomType === 'Lab' && (
                     <>
-                      <option value="ICT Common Lab 1">ICT Common Lab 1</option>
-                      <option value="ICT Common Lab 2">ICT Common Lab 2</option>
-                      <option value="Multimedia Lab">Multimedia Lab</option>
+                    <option value="ICT Lab 01">ICT Lab 01</option>
+                    <option value="ICT Lab 02">ICT Lab 02</option>
+                    <option value="IOT & Robotics Lab">IOT & Robotics Lab</option>
+                    <option value="ICT Research Lab">ICT Research Lab</option>
+                    <option value="Multimedia Lab">Multimedia Lab</option>
+                    <option value="Network & Security Lab">Network & Security Lab</option>
+                    <option value="Interactive Media Lab">Interactive Media Lab</option>
+                    <option value="Physics Lab">Physics Lab</option>
+                    <option value="Remolesensation & GIS lab">Remolesensation & GIS lab</option>
+                    <option value="Electronic Lab">Electronic Lab</option>
+                    <option value="Geotechnics Lab">Geotechnics Lab</option>
+                    <option value="Rock Mechanics Lab">Rock Mechanics Lab</option>
+                    <option value="Geology Lab">Geology Lab</option>
+                    <option value="Microbiology Lab">Microbiology Lab</option>
+                    <option value="Engineering, Drawing & Mechanics Lab">Engineering, Drawing & Mechanics Lab</option>
+                    <option value="Energy Lab">Energy Lab</option>
+                    <option value="Properties of Meterial Lab">Properties of Meterial Lab</option>
+                    <option value="Biotechnolgoy Lab">Biotechnolgoy Lab</option>
+                    <option value="A/V Studio">A/V Studio</option>
+                    <option value="Mechatronic Lab">Mechatronic Lab</option>
+                    <option value="Environmental Lab">Environmental Lab</option>
+                    <option value="Plastic Testing Lab">Plastic Testing Lab</option>
+                    <option value="Agriculture Common Lab">Agriculture Common Lab</option>
+                    <option value="Thermodynamics & Fluid Mechanics Lab">Thermodynamics & Fluid Mechanics Lab</option>
+                    <option value="Chemestry Lab">Chemestry Lab</option>
+                    <option value="Latex Processing Lab">Latex Processing Lab</option>
+                    <option value="Food Processing Lab 02 Lab">Food Processing Lab 02 Lab</option>
+                    <option value="Metierial Characterization Lab">Metierial Characterization Lab</option>
                     </>
                   )}
                 </select>
