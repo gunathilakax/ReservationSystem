@@ -1,8 +1,5 @@
 .full-section{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Full height of the viewport */
+
   background-image: url("../assets/bgimg.png");
   background-size: cover;
   background-position: center; /* Center the background image */
@@ -10,6 +7,10 @@
 }
 
 .lecbookingpage-booking-containor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full height of the viewport */
   flex-direction: column;
   margin-top: 60px;
   }

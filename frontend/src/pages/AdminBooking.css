@@ -2,12 +2,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
-  min-height: 100vh; /* Full height of the viewport */
   background-image: url("../assets/bgimg.png");
   background-size: cover;
-  background-position: center; /* Center the background image */
+  
+}
+
+.admin-booking-background {
+  margin-top: 80px;
   padding: 40px; /* Add padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full height of the viewport */
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for better contrast */
+  border-radius: 8px;
+  width: 100%;
+  width: 700px; /* Maximum width of the form */
+  background-position: center; /* Center the background image */
 }
 
 .admin-booking-form-section {

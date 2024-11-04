@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'; // Add this import
 import React, { useState, useEffect } from 'react';
 import LecturerNavBar from '../components/LecturerNavBar';
+import Footer from '../components/Footer';
 import axios from 'axios';
 import './LecturerBookingPage.css';
 
@@ -112,8 +113,8 @@ const LecturerBookingPage = () => {
 
   return (
     <div className="full-section">
+      <LecturerNavBar /><br /><br />
       <div className="lecbookingpage-booking-containor">
-        <LecturerNavBar /><br /><br />
         <div className="lecbookingpage-forem-section">
           <h2>Book a Room</h2>
           <form onSubmit={handleSubmit}>
@@ -305,6 +306,7 @@ const LecturerBookingPage = () => {
         </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

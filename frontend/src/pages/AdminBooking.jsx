@@ -143,6 +143,7 @@ const AdminBooking = () => {
   return (
     <div className="admin-booking-container">
       <AdminNavBar />
+      <div className="admin-booking-background">
       <div className="admin-booking-form-section">
         <h2>Book a Room</h2>
         
@@ -328,6 +329,7 @@ const AdminBooking = () => {
             </div>
           </div>
         )}
+      </div>
       </div>
     </div>
   );
