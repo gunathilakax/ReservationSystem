@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import AdminNavBar from '../components/LecturerNavBar'; // Ensure this points to the correct navbar component
-import './LectureHalls.css'; // Import the CSS file for styling
+import AdminNavBar from '../components/LecturerNavBar';
+import Footer from '../components/Footer'; 
+import './LectureHalls.css';
 import LectureHallImage from '../assets/Lecture_Hall.jpg';
 import DefaultImage from '../assets/lecture-halls/default.png'; // Import the default image
 
@@ -143,7 +144,8 @@ const AdminLectureHalls = () => {
   };
 
   return (
-    <div className="lec-lecture-halls-container">
+    <div className="lec-lecture-halls-page">
+      <div className="lec-lecture-halls-container">
       <AdminNavBar />
       <div className="lec-hall-slideshow">
         <div
@@ -158,6 +160,7 @@ const AdminLectureHalls = () => {
           ))}
         </div>
       </div>
+      <div className="lec-lecture-hall-section">
       <div className="lec-tabs">
         <button className={activeTab === 'LGF' ? 'active' : ''} onClick={() => setActiveTab('LGF')}>LGF</button>
         <button className={activeTab === 'GF' ? 'active' : ''} onClick={() => setActiveTab('GF')}>GF</button>
@@ -167,6 +170,9 @@ const AdminLectureHalls = () => {
       <div className="lec-lecture-halls-grid">
         {renderLectureHalls()}
       </div>
+      </div>
+      </div>
+      <Footer />
     </div>
   );
 };

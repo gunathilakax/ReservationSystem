@@ -1,9 +1,12 @@
 /* src/pages/Labs.css */
+
+  .lec-lab-page {
+    background-image: url("../assets/bgimg.png");
+    background-size: cover; /* Ensure the background image covers the area */
+  }
   .lec-labs-container {
     margin-top: 70px;
     padding: 50px;
-    background-color: #fff;
-    border-radius: 8px;
   }
     
   .lec-labs-grid {
@@ -11,6 +14,9 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 8px;
   }
   
   .lec-lab-card {

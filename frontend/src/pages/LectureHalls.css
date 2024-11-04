@@ -1,9 +1,19 @@
 /* src/pages/LectureHalls.css */
+.lec-lecture-halls-page {
+  background-image: url("../assets/bgimg.png");
+  background-size: cover; /* Ensure the background image covers the area */
+
+}
+
 .lec-lecture-halls-container {
-  margin-top: 60px;
+  margin-top: 70px;
   padding: 50px;
-  background-color: #fff;
+}
+.lec-lecture-hall-section {
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
+  padding: 50px;
+  margin-top: 20px;
 }
 
 .lec-tabs {
@@ -35,6 +45,7 @@
 
 .lec-lecture-hall-card {
   padding: 15px;
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

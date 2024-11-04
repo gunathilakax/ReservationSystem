@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import LecturerNavBar from '../components/LecturerNavBar';
+import Footer from '../components/Footer';
 import './Labs.css';
 import LabImage1 from '../assets/labs-slide-show/Lab1.jpg';
 import LabImage2 from '../assets/labs-slide-show/Lab2.jpg';
@@ -46,6 +47,7 @@ const Labs = () => {
   };
 
   return (
+    <div className="lec-lab-page">
     <div className="lec-labs-container">
       <LecturerNavBar />
       <div className="lec-lab-slideshow">
@@ -68,6 +70,9 @@ const Labs = () => {
           </div>
         ))}
       </div>
+      
+      </div>
+      <Footer />
     </div>
   );
 };
