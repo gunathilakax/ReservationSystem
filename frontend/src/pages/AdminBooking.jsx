@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import AdminNavBar from '../components/AdminNavBar';
+import Footer from '../components/Footer'; 
 import axios from 'axios';
 import './AdminBooking.css';
 
@@ -141,6 +142,7 @@ const AdminBooking = () => {
   };
 
   return (
+    <div className="admin-booking-page">
     <div className="admin-booking-container">
       <AdminNavBar />
       <div className="admin-booking-background">
@@ -331,6 +333,8 @@ const AdminBooking = () => {
         )}
       </div>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };
