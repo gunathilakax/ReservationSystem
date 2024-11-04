@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import AdminNavBar from '../components/AdminNavBar';
+import Footer from '../components/Footer';
 import './ReservationRequests.css';
 
 const ReservationRequests = () => {
@@ -51,9 +52,9 @@ const ReservationRequests = () => {
   };
 
   return (
-    <div className="reservation-requests-container">
+    <div className="reservation-requests-page">
       <AdminNavBar />
-
+    <div className="reservation-requests-container">
       {error && <p className="reservation-requests-error">{error}</p>}
       <div className="reservation-requests">
       <h2>All Booking Requests</h2>
@@ -95,6 +96,8 @@ const ReservationRequests = () => {
           <p>No booking requests found.</p>
         )}
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };

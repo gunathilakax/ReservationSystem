@@ -1,13 +1,18 @@
+.reservation-requests-page {
+    margin-top: 50px;
+    background-image: url("../assets/bgimg.png");
+    background-size: cover;
+}
+
 .reservation-requests-container {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+
     padding: 20px;
     min-height: 100vh; /* Ensure full height */
-    background-image: url("../assets/bgimg.png");
-    background-size: cover;
+
     width: 100%; /* Set to 100% for better responsiveness */
 }
 
