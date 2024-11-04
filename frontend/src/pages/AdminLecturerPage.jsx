@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AdminNavBar from '../components/AdminNavBar';
-import LecturerList from '../components/LecturerList';  // Import the new component
+import LecturerList from '../components/LecturerList';
+import Footer from '../components/Footer';
 import './AdminLecturerPage.css';
 import axios from 'axios';
 
@@ -44,6 +45,7 @@ const AdminLecturerPage = () => {
   return (
     <div className="admin-lecturer-page">
       <AdminNavBar /><br /><br />
+      <div className="admin-lecturer-page-container">
       <div className="adlec-content">
         <h2>Add Users</h2>
         <form className="adlec-form" onSubmit={handleSubmit}>
@@ -127,6 +129,8 @@ const AdminLecturerPage = () => {
         <h2>Users</h2>
         <LecturerList />  {/* Include the new component here */}
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };

@@ -1,23 +1,28 @@
 /* AdminLecturerPage.css */
 
 .admin-lecturer-page {
+  background-image: url("../assets/bgimg.png");
+  background-size: cover;
+  background-position: center; 
+}
+
+.admin-lecturer-page-container {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding: 20px;
   min-height: 100vh; 
-  margin-top: 50px; 
-  background-color: #f4f4f4; 
+  flex-direction: column;
+  margin-top: 60px;
 }
 
 .adlec-content {
-  background-color: white; /* White background for the form */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: white; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
   padding: 20px;
-  max-width: 500px; /* Limit form width */
-  width: 100%; /* Responsive width */
+  max-width: 500px; 
+  width: 100%; 
+  margin-bottom: 50px;
 }
 
 .adlec-content h2 {
