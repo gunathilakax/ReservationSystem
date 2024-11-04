@@ -7,7 +7,7 @@ import './AdminPage.css';
 
 const AdminPage = () => {
   return (
-    <div>
+    <div className="admin-page">
       <AdminNavBar />
       <div className='admin-notice-board-container'>
       <NoticeBoard isAdmin={true} />
