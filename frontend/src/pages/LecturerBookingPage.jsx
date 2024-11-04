@@ -284,7 +284,7 @@ const LecturerBookingPage = () => {
         )}
       </div>
       <div className="lecbookingpage-requests-section">
-        <h2>Your Booking Requests</h2>
+        <h2>My Booking Requests</h2>
         <div className="lecbookingpage-booking-requests">
           {bookingRequests.length > 0 ? (
             bookingRequests.map((request) => (
