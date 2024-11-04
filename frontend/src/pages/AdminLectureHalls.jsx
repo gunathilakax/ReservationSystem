@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavBar from '../components/AdminNavBar';
+import Footer from '../components/Footer'; 
 import './AdminLectureHalls.css';
 import LectureHallImage from '../assets/Lecture_Hall.jpg';
 import DefaultImage from '../assets/lecture-halls/default.png'; // Default image
@@ -132,7 +133,8 @@ const AdminLectureHalls = () => {
   };
 
   return (
-    <div className="admin-lecture-halls-container">
+    <div className="admin-lecture-halls-page">
+      <div className="admin-lecture-halls-container">
       <AdminNavBar />
       <div className="admin-lec-hall-slideshow">
         <div
@@ -147,6 +149,7 @@ const AdminLectureHalls = () => {
           ))}
         </div>
       </div>
+      <div className="admin-lecture-hall-section">
       <div className="admin-tabs">
         <button
           className={activeTab === 'LGF' ? 'active' : ''}
@@ -176,6 +179,9 @@ const AdminLectureHalls = () => {
       <div className="admin-lecture-halls-grid">
         {renderLectureHalls()}
       </div>
+      </div>
+      </div>
+      <Footer />
     </div>
   );
 };

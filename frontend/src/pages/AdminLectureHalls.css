@@ -1,9 +1,19 @@
 /* src/pages/AdminLectureHalls.css */
+  .admin-lecture-halls-page {
+    background-image: url("../assets/bgimg.png");
+    background-size: cover; 
+  }
+
   .admin-lecture-halls-container {
     margin-top: 50px;
     padding: 50px;
-    background-color: #fff;
+  }
+
+  .admin-lecture-hall-section {
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
+    padding: 50px;
+    margin-top: 20px;
   }
   
   .admin-tabs {
