@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './AdminCalendarPage.css';
 import AdminNavBar from '../components/AdminNavBar';
+import Footer from '../components/Footer';
 import axios from 'axios';
 import CustomCalendar from '../components/CustomCalendar';
 import SemesterConfig from '../components/SemesterConfig';
@@ -70,6 +71,7 @@ const AdminCalendarPage = () => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
