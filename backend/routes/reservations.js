@@ -4,7 +4,7 @@ const Reservation = require('../models/Reservation');
 
 // Route to handle new reservation (POST request)
 router.post('/', async (req, res) => {
-  const { fullName, email, phone, department, numberOfStudents, roomType, room, date, duration, timeSlot, note, username, setForEveryWeek } = req.body;
+  const { fullName, email, phone, department, subject, numberOfStudents, roomType, room, date, duration, timeSlot, note, username, setForEveryWeek } = req.body;
 
   try {
     // Store all the reservations
@@ -19,6 +19,7 @@ router.post('/', async (req, res) => {
           email,
           phone,
           department,
+          subject,
           numberOfStudents,
           roomType,
           room,
@@ -40,6 +41,7 @@ router.post('/', async (req, res) => {
         email,
         phone,
         department,
+        subject,
         numberOfStudents,
         roomType,
         room,

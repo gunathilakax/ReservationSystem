@@ -70,6 +70,7 @@ const ReservationRequests = () => {
                 <div className="reservation-requests-expanded-details">
                   <p><strong>Phone:</strong> {request.phone}</p>
                   <p><strong>Department:</strong> {request.department}</p>
+                  <p><strong>Subject:</strong> {request.subject}</p>
                   <p><strong>Number of Students:</strong> {request.numberOfStudents}</p>
                   <p><strong>Room Type:</strong> {request.roomType}</p>
                   <p><strong>Room:</strong> {request.room}</p>

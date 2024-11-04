@@ -20,6 +20,7 @@ const AdminBooking = () => {
     email: bookingRequest ? bookingRequest.email : '',
     phone: bookingRequest ? bookingRequest.phone : '',
     department: bookingRequest ? bookingRequest.department : '',
+    subject: bookingRequest ? bookingRequest.subject : ' ',
     numberOfStudents: bookingRequest ? bookingRequest.numberOfStudents : '',
     roomType: bookingRequest ? bookingRequest.roomType : '',
     room: bookingRequest ? bookingRequest.room : '',
@@ -121,6 +122,7 @@ const AdminBooking = () => {
         email: '',
         phone: '',
         department: '',
+        subject: '',
         numberOfStudents: '',
         roomType: '',
         room: '',
@@ -172,6 +174,10 @@ const AdminBooking = () => {
           <div>
             <label>Department:</label>
             <input type="text" name="department" value={formData.department} onChange={handleChange} required />
+          </div>
+          <div>
+            <label>Subject:</label> {/* New subject input field */}
+            <input type="text" name="subject" value={formData.subject} onChange={handleChange} required />
           </div>
           <div>
             <label>Number of Students:</label>

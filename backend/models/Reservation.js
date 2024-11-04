@@ -6,6 +6,7 @@ const ReservationSchema = new mongoose.Schema({
   email: { type: String, required: true },
   phone: { type: String, required: true },
   department: { type: String, required: true },
+  subject: { type: String, required: true }, // New subject field
   numberOfStudents: { type: Number, required: true },
   roomType: { type: String, required: true },
   room: { type: String, required: true },

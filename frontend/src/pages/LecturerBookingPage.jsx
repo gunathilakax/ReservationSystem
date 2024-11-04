@@ -15,6 +15,7 @@ const LecturerBookingPage = () => {
     email: '',
     phone: '',
     department: '',
+    subject: '',
     numberOfStudents: '',
     roomType: initialRoomType, // Set initial room type from props
     room: initialRoom, // Set initial room from props
@@ -78,6 +79,7 @@ const LecturerBookingPage = () => {
       setShowModal(true);
       setFormData({
         ...formData,
+        subject: '',
         numberOfStudents: '',
         roomType: '',
         room: '',
@@ -131,6 +133,10 @@ const LecturerBookingPage = () => {
             <label>Department:</label>
             <input type="text" name="department" value={formData.department} readOnly />
           </div>
+          <div>
+            <label>Subject:</label> {/* New subject input field */}
+            <input type="text" name="subject" value={formData.subject} onChange={handleChange} required />
+            </div>
           <div>
             <label>Number of Students:</label>
             <input type="number" name="numberOfStudents" value={formData.numberOfStudents} onChange={handleChange} required />
@@ -285,6 +291,7 @@ const LecturerBookingPage = () => {
                 <h3>Booking Request</h3>
                 <p><strong>Date:</strong> {new Date(request.date).toLocaleDateString()}</p>
                 <p><strong>Time Slot:</strong> {request.timeSlot}</p>
+                <p><strong>Subject:</strong> {request.subject}</p>
                 <p><strong>Room Type:</strong> {request.roomType}</p>
                 <p><strong>Room:</strong> {request.room}</p>
                 <div className="lecbookingpage-booking-card-actions">

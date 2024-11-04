@@ -4,7 +4,21 @@ const BookingRequest = require('../models/BookingRequests');
 
 // Route to handle new booking request
 router.post('/', async (req, res) => {
-  const { fullName, email, phone, department, numberOfStudents, roomType, room, date, duration, timeSlot, note, username } = req.body;
+  const { 
+    fullName, 
+    email, 
+    phone, 
+    department, 
+    numberOfStudents, 
+    roomType, 
+    room, 
+    date, 
+    duration, 
+    timeSlot, 
+    note, 
+    subject, // Add subject here
+    username 
+  } = req.body;
 
   try {
     const newBookingRequest = new BookingRequest({
@@ -19,6 +33,7 @@ router.post('/', async (req, res) => {
       duration,
       timeSlot,
       note,
+      subject, // Include subject in the booking request
       username
     });
 
@@ -57,6 +72,5 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-
 
 module.exports = router;
