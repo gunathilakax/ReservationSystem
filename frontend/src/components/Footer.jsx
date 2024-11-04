@@ -1,42 +1,32 @@
 import React from 'react';
-import './Footer.css'; // Import the CSS file
+import './Footer.css';
+import FBImage from '../assets/social-image.png';
+import InstaImage from '../assets/instagram-image.png';
+
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="info-section">
-          <h3 className="footer-title">INFO</h3>
-          <ul className="footer-links">
-            <li><a href="https://tech.sjp.ac.lk/">Faculty of Technology</a></li>
-            <li><a href="https://www.sjp.ac.lk/cits/">Center for IT Services</a></li>
-            <li><a href="https://www.sjp.ac.lk/">University of Sri Jayewardenepura</a></li>
-            <li><a href="https://web.facebook.com/FOTUSJP/?_rdc=1&_rdr">Facebook</a></li>
-            <li><a href="https://www.youtube.com/c/FacultyofTechnology/?sub_confirmation=1">YouTube</a></li>
-          </ul>
-        </div>
-
-        <div className="contact-section">
-          <h3 className="footer-title">Contact Us</h3>
-          <p className="contact-info">
-            Pitipana, Homagama,<br />Sri Lanka
-          </p>
-          <p>Email: <a href="mailto:help@fot.sjp.ac.lk">help@fot.sjp.ac.lk</a></p>
-          <p>Phone: <a href="tel:+94113438555">0113 438 555</a></p>
-        </div>
+      <div className="footer-section-1">
+        <h5 className="footer-heading">INFO</h5>
+        <ul className="footer-list">
+          <li><a href="https://technology.sjp.ac.lk" className="footer-link">Faculty of Technology</a></li>
+          <li><a href="https://it.sjp.ac.lk" className="footer-link">Center for IT Services</a></li>
+          <li><a href="https://www.sjp.ac.lk" className="footer-link">University of Sri Jayewardenepura</a></li>
+          <li><a href="https://facebook.com" className="footer-link">Facebook</a></li>
+          <li><a href="https://youtube.com" className="footer-link">YouTube</a></li>
+        </ul>
       </div>
-
-      <div className="footer-bottom">
-        <div className="container footer-bottom-container">
-          <p>&copy; 2023 your company. All rights reserved</p>
-
-          <ul className="social-links">
-            <li><a href="https://web.facebook.com/FOTUSJP/?_rdc=1&_rdr"><i className="fab fa-facebook fa-lg"></i></a></li>
-            <li><a href="https://www.youtube.com/c/FacultyofTechnology/?sub_confirmation=1"><i className="fab fa-youtube fa-lg"></i></a></li>
-            <li><a href="#"><i className="fab fa-instagram fa-lg"></i></a></li>
-            <li><a href="#"><i className="fab fa-linkedin fa-lg"></i></a></li>
-          </ul>
-        </div>
+      <div className="footer-section-2">
+        <h3 className="footer-heading">CONTACT US</h3>
+        <p className="footer-text">Pitipana, Homagama, Sri Lanka</p>
+        <p className="footer-text"><span role="img" aria-label="phone">📞</span> Phone: 0113 438 555</p>
+        <p className="footer-text"><span role="img" aria-label="email">📧</span> E-mail: <a href="mailto:help@fot.sjp.ac.lk" className="footer-link">help@fot.sjp.ac.lk</a></p>
+      </div>
+      <div className="footer-section-3">
+        <h3 className="footer-heading">GET SOCIAL</h3>
+        <a href="https://facebook.com" className="footer-icon"><img src={FBImage} alt="Facebook" className="social-icon" /></a>
+        <a href="https://facebook.com" className="footer-icon"><img src={InstaImage} alt="Instagram" className="insta-icon" /></a>
       </div>
     </footer>
   );

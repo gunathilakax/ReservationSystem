@@ -2,6 +2,7 @@
 import React from 'react';
 import AdminNavBar from '../components/AdminNavBar';
 import NoticeBoard from '../components/NoticeBoard';
+import Footer from '../components/Footer';
 import './AdminPage.css';
 
 const AdminPage = () => {
@@ -11,6 +12,7 @@ const AdminPage = () => {
       <div className='admin-notice-board-container'>
       <NoticeBoard isAdmin={true} />
       </div>
+      <Footer />
     </div>
   );
 };
