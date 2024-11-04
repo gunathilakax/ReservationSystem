@@ -5,6 +5,7 @@ import ConfirmationModal from './ConfirmationModal';
 
 const LecturerList = () => {
   const [lecturers, setLecturers] = useState([]);
+  const [filteredLecturers, setFilteredLecturers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedLecturer, setSelectedLecturer] = useState(null);
@@ -17,6 +18,7 @@ const LecturerList = () => {
         const response = await axios.get('http://localhost:5000/api/users');
         const filteredLecturers = response.data.filter(user => user.role !== 'admin');
         setLecturers(filteredLecturers);
+        setFilteredLecturers(filteredLecturers);
       } catch (error) {
         console.error('Error fetching lecturers:', error);
       }
@@ -24,6 +26,14 @@ const LecturerList = () => {
 
     fetchLecturers();
   }, []);
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    const filtered = lecturers.filter(lecturer =>
+      lecturer.username.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    setFilteredLecturers(filtered);
+  };
 
   const handleEditClick = (lecturer) => {
     setSelectedLecturer(lecturer);
@@ -39,6 +49,7 @@ const LecturerList = () => {
     try {
       await axios.delete(`http://localhost:5000/api/users/${lecturerToRemove._id}`);
       setLecturers(lecturers.filter(lecturer => lecturer._id !== lecturerToRemove._id));
+      setFilteredLecturers(filteredLecturers.filter(lecturer => lecturer._id !== lecturerToRemove._id));
       setConfirmModalOpen(false);
       setLecturerToRemove(null);
     } catch (error) {
@@ -56,22 +67,15 @@ const LecturerList = () => {
     setLecturerToRemove(null);
   };
 
-  // Filter lecturers based on the search term
-  const filteredLecturers = lecturers.filter(lecturer =>
-    lecturer.username.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
     <div className="lecturer-list">
-      <p>Search</p>
       <input
         type="text"
-        placeholder="Search by ID"
+        placeholder="Search by username"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-input"
+        onChange={handleSearchChange}
+        className="search-bar"
       />
-
       {filteredLecturers.length === 0 ? (
         <p>No lecturers found.</p>
       ) : (
@@ -97,6 +101,9 @@ const LecturerList = () => {
             setLecturers(lecturers.map(lecturer => 
               lecturer._id === updatedLecturer._id ? updatedLecturer : lecturer
             ));
+            setFilteredLecturers(filteredLecturers.map(lecturer =>
+              lecturer._id === updatedLecturer._id ? updatedLecturer : lecturer
+            ));
             handleModalClose();
           }} 
         />
@@ -108,6 +115,110 @@ const LecturerList = () => {
           onCancel={handleConfirmCancel} 
         />
       )}
+    </div>
+  );
+};
+
+const EditLecturerModal = ({ lecturer, onClose, onUpdate }) => {
+  const [formData, setFormData] = useState({ ...lecturer });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.put(`http://localhost:5000/api/users/${lecturer._id}`, formData);
+      onUpdate(response.data);
+    } catch (error) {
+      console.error('Error updating lecturer:', error);
+    }
+  };
+
+  return (
+    <div className="modal">
+      <div className="modal-content">
+        <h2>Edit Lecturer</h2>
+        <form onSubmit={handleSubmit}>
+          <label>Full Name:
+            <input
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>Email:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>Phone:
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>Department:
+            <input
+              type="text"
+              name="department"
+              value={formData.department}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>Subject:
+            <input
+              type="text"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>Username:
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>Password:
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>Role:
+            <select
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              required
+            >
+              <option value="lecturer">Lecturer</option>
+              <option value="admin">Admin</option>
+            </select>
+          </label>
+          <button type="submit">Save Changes</button>
+          <button type="button" onClick={onClose}>Cancel</button>
+        </form>
+      </div>
     </div>
   );
 };
