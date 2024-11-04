@@ -6,7 +6,6 @@
 
 .profile-page {
     margin-top: 20px;
-    padding: 20px;
     background-image: url("../assets/bgimg.png");
     background-size: cover; /* Ensure the background image covers the area */
 }

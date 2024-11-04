@@ -2,6 +2,7 @@
 import React from 'react';
 import LecturerNavBar from '../components/LecturerNavBar';
 import NoticeBoard from '../components/NoticeBoard';
+import Footer from '../components/Footer';
 import './LecturerPage.css';
 
 const LecturerPage = () => {
@@ -11,6 +12,7 @@ const LecturerPage = () => {
       <div className='lec-notice-board-conttainor'>
       <NoticeBoard isAdmin={false} />
       </div>
+      <Footer />
     </div>
   );
 };

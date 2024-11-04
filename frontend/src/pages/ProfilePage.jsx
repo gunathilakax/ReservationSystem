@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LecturerNavBar from '../components/LecturerNavBar';
+import Footer from '../components/Footer';
 import axios from 'axios';
 import './ProfilePage.css';
 import ProfileImage from '../assets/Profile.png';
@@ -109,6 +110,7 @@ const ProfilePage = () => {
           </div>
         </div>
       )}
+          <Footer />
     </div>
   );
 };
