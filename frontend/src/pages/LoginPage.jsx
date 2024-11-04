@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import authAPI from '../api/auth';
 import UniNavBar from '../components/UniNavBar';
+import Footer from '../components/Footer';
 import './loginPage.css';
 import logo from '../assets/logo.png'; // Import the logo image
 
@@ -34,6 +35,7 @@ const LoginPage = () => {
   };
 
   return (
+    <div className="login-page">
     <div className="login-body">
     <div className="login-container">
       <UniNavBar />
@@ -74,6 +76,8 @@ const LoginPage = () => {
         </div>
       </form>
     </div>
+    </div>
+    <Footer />
     </div>
   );
 };

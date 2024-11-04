@@ -21,8 +21,8 @@ const Footer = () => {
       <div className="footer-section-2">
         <h3 className="footer-heading">CONTACT US</h3>
         <p className="footer-text">Pitipana, Homagama, Sri Lanka</p>
-        <p className="footer-text"><span role="img" aria-label="phone">📞</span> Phone: 0113 438 555</p>
-        <p className="footer-text"><span role="img" aria-label="email">📧</span> E-mail: <a href="mailto:help@fot.sjp.ac.lk" className="footer-link">help@fot.sjp.ac.lk</a></p>
+        <p className="footer-text"><span role="img" aria-label="phone">📞</span> Phone: +94 111 222 333</p>
+        <p className="footer-text"><span role="img" aria-label="email">📧</span> E-mail: <a href="mailto:example@fot.sjp.ac.lk" className="footer-link">help@fot.sjp.ac.lk</a></p>
       </div>
       <div className="footer-section-3">
         <h3 className="footer-heading">GET SOCIAL</h3>
