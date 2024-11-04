@@ -1,6 +1,7 @@
 // src/pages/AdminLabs.jsx
 import React, { useEffect, useState } from 'react';
 import AdminNavBar from '../components/AdminNavBar';
+import Footer from '../components/Footer';
 import axios from 'axios';
 import './AdminLabs.css';
 
@@ -37,6 +38,7 @@ const AdminLabs = () => {
 
   return (
     <div className="admin-labs-page">
+      <div className="admin-labs-page-container">
       <AdminNavBar />
       <div className="admin-labs-slideshow">
       <div
@@ -57,6 +59,8 @@ const AdminLabs = () => {
           </div>
         ))}
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };
