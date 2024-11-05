@@ -46,6 +46,7 @@
   .admin-lecture-hall-card {
     padding: 15px;
     border: 1px solid #ccc;
+    background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
